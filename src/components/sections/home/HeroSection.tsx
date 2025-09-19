@@ -1,234 +1,18 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { TextPlugin } from 'gsap/TextPlugin';
 import Image from 'next/image';
 import olawalePic from '../../../assets/olawale-pic.png';
 import { Button } from '@/components/ui/button';
 
-// Register TextPlugin
-gsap.registerPlugin(TextPlugin);
-
 export default function HeroSection() {
   const svgRef = useRef(null);
-  const [currentEffect, setCurrentEffect] = useState('default');
 
   useEffect(() => {
-    // Reset all animations first
-    gsap.set('.letter-path', { clearProps: "all" });
-    
-    switch(currentEffect) {
-      case 'default':
-        applyDefaultEffect();
-        break;
-      case 'typewriter':
-        applyTypewriterEffect();
-        break;
-      case 'wave':
-        applyWaveEffect();
-        break;
-      case 'morph':
-        applyMorphEffect();
-        break;
-      case 'staggerScale':
-        applyStaggerScaleEffect();
-        break;
-      case 'spinIn':
-        applySpinInEffect();
-        break;
-      case 'bounce':
-        applyBounceEffect();
-        break;
-      case 'glitch':
-        applyGlitchEffect();
-        break;
-      case 'rainbow':
-        applyRainbowEffect();
-        break;
-      case 'explode':
-        applyExplodeEffect();
-        break;
-      case 'scribble':
-        applyScribbleEffect();
-        break;
-      case 'neon':
-        applyNeonEffect();
-        break;
-      case 'puzzle':
-        applyPuzzleEffect();
-        break;
-      default:
-        applyDefaultEffect();
-    }
-  }, [currentEffect]);
-
-  const applyDefaultEffect = () => {
-    gsap.set('.letter-path', {
-      rotationX: -90,
-      opacity: 0,
-      transformOrigin: 'center center',
-    });
-    
-    gsap.to('.letter-path', {
-      rotationX: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out'
-    });
-  };
-
-  const applyTypewriterEffect = () => {
-    gsap.set('.letter-path', { opacity: 0 });
-    
-    gsap.to('.letter-path', {
-      opacity: 1,
-      duration: 0.2,
-      stagger: 0.1,
-      ease: 'power1.inOut'
-    });
-  };
-
-  const applyWaveEffect = () => {
-    gsap.set('.letter-path', { 
-      y: 100,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      y: 0,
-      opacity: 1,
-      duration: 0.6,
-      stagger: 0.08,
-      ease: 'elastic.out(1, 0.3)'
-    });
-  };
-
-  const applyMorphEffect = () => {
-    gsap.set('.letter-path', { 
-      scale: 0,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      scale: 1,
-      opacity: 1,
-      duration: 0.7,
-      stagger: 0.05,
-      ease: 'back.out(1.7)'
-    });
-  };
-
-  const applyStaggerScaleEffect = () => {
-    gsap.set('.letter-path', { 
-      scale: 0.2,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      scale: 1,
-      opacity: 1,
-      duration: 0.5,
-      stagger: {
-        amount: 1.5,
-        from: "random"
-      },
-      ease: 'power2.out'
-    });
-  };
-
-  const applySpinInEffect = () => {
-    gsap.set('.letter-path', { 
-      rotation: 360,
-      scale: 0,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      rotation: 0,
-      scale: 1,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.1,
-      ease: 'back.out(1.7)'
-    });
-  };
-
-  const applyBounceEffect = () => {
-    gsap.set('.letter-path', { 
-      y: -300,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'bounce.out'
-    });
-  };
-
-  const applyGlitchEffect = () => {
-    gsap.set('.letter-path', { 
-      x: () => gsap.utils.random(-20, 20),
-      y: () => gsap.utils.random(-20, 20),
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      stagger: 0.05,
-      ease: 'power2.out'
-    });
-  };
-
-  const applyRainbowEffect = () => {
-    const colors = ['#ff6b6b', '#ff9e6b', '#ffd56b', '#a4ff6b', '#6bffb8', '#6bd5ff', '#6b88ff', '#b56bff', '#ff6be1'];
-    
-    gsap.set('.letter-path', { 
-      opacity: 0,
-      fill: '#6EE7B7'
-    });
-    
-    gsap.to('.letter-path', {
-      opacity: 1,
-      duration: 0.4,
-      stagger: 0.1,
-      fill: (i) => colors[i % colors.length],
-      ease: 'power2.out'
-    });
-  };
-
-  const applyExplodeEffect = () => {
-    gsap.set('.letter-path', { 
-      x: () => gsap.utils.random(-500, 500),
-      y: () => gsap.utils.random(-500, 500),
-      scale: 3,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      x: 0,
-      y: 0,
-      scale: 1,
-      opacity: 1,
-      duration: 1.2,
-      stagger: 0.1,
-      ease: 'power3.out'
-    });
-  };
+    // Apply scribble effect on component mount
+    applyScribbleEffect();
+  }, []);
 
   const applyScribbleEffect = () => {
     gsap.set('.letter-path', { 
@@ -239,80 +23,22 @@ export default function HeroSection() {
       strokeWidth: 2
     });
     
-    gsap.to('.letter-path', {
-      strokeDashoffset: 0,
-      duration: 2,
-      stagger: 0.2,
-      onComplete: function() {
-        gsap.to(this.targets()[0], {
-          fill: '#6EE7B7',
-          duration: 0.5
-        });
-      }
+    // Create a timeline for each letter
+    document.querySelectorAll('.letter-path').forEach((letter, index) => {
+      const tl = gsap.timeline({ delay: index * 0.2 });
+      
+      tl.to(letter, {
+        strokeDashoffset: 0,
+        duration: 2,
+        ease: 'none'
+      })
+      .to(letter, {
+        fill: '#6EE7B7',
+        duration: 0.5,
+        ease: 'power2.out'
+      }, '-=0.3'); // Start filling slightly before stroke completes
     });
   };
-
-  const applyNeonEffect = () => {
-    gsap.set('.letter-path', { 
-      opacity: 0,
-      filter: 'drop-shadow(0 0 5px #6EE7B7)'
-    });
-    
-    gsap.to('.letter-path', {
-      opacity: 1,
-      duration: 0.5,
-      stagger: 0.1,
-      ease: 'power2.out'
-    });
-    
-    // Add pulsing glow effect
-    gsap.to('.letter-path', {
-      filter: 'drop-shadow(0 0 15px #6EE7B7)',
-      duration: 1,
-      stagger: 0.1,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-  };
-
-  const applyPuzzleEffect = () => {
-    gsap.set('.letter-path', { 
-      scale: 0,
-      rotation: 90,
-      opacity: 0,
-      transformOrigin: 'center center'
-    });
-    
-    gsap.to('.letter-path', {
-      scale: 1,
-      rotation: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: {
-        each: 0.1,
-        from: "edges"
-      },
-      ease: 'elastic.out(1, 0.5)'
-    });
-  };
-
-  const effects = [
-    { id: 'default', name: 'Default' },
-    { id: 'typewriter', name: 'Typewriter' },
-    { id: 'wave', name: 'Wave' },
-    { id: 'morph', name: 'Morph' },
-    { id: 'staggerScale', name: 'Stagger Scale' },
-    { id: 'spinIn', name: 'Spin In' },
-    { id: 'bounce', name: 'Bounce' },
-    { id: 'glitch', name: 'Glitch' },
-    { id: 'rainbow', name: 'Rainbow' },
-    { id: 'float', name: 'Float' },
-    { id: 'explode', name: 'Explode' },
-    { id: 'scribble', name: 'Scribble' },
-    { id: 'neon', name: 'Neon' },
-    { id: 'puzzle', name: 'Puzzle' }
-  ];
 
   const socialLinks = [
     {
@@ -361,23 +87,6 @@ export default function HeroSection() {
 
         {/* Vertical line decoration */}
         <div className="w-px hidden h-20 bg-gradient-to-b from-emerald-400 to-transparent mx-auto mt-6"></div>
-      </div>
-
-      {/* Effect Selection Buttons */}
-      <div className="fixed right-6 top-6 z-50 bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-        <h3 className="text-white text-sm font-bold mb-2">SVG Effects</h3>
-        <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto">
-          {effects.map(effect => (
-            <Button
-              key={effect.id}
-              onClick={() => setCurrentEffect(effect.id)}
-              className={`text-xs h-8 ${currentEffect === effect.id ? 'bg-emerald-400' : 'bg-white/10'}`}
-              size="sm"
-            >
-              {effect.name}
-            </Button>
-          ))}
-        </div>
       </div>
 
       <section className="section flex items-center justify-center">

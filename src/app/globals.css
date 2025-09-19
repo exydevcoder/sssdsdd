@@ -119,6 +119,15 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
+@font-face {
+  font-family: 'RightGrotesk';
+  src: url('/fonts/right-grotesk/RightGrotesk-TightMedium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -141,4 +150,10 @@
 
 .cta-btn{
   @apply w-[40px] h-[40px] flex items-center justify-center bg-[#262626] rounded-[12px] cursor-pointer
+}
+
+.lastStepStyle {
+    font-family: 'RightGrotesk';
+    font-weight: 500;
+    font-style: normal;
 }

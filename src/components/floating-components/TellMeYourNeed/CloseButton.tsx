@@ -1,8 +1,12 @@
 import { MsgIcon } from '@/components/icon';
 
-export default function CloseButton() {
+interface CloseButtonProps {
+  onClick: () => void;
+}
+
+export default function CloseButton({ onClick }: CloseButtonProps) {
   return (
-    <button className="cta-btn">
+    <button className="cta-btn" onClick={onClick}>
       <MsgIcon />
     </button>
   );

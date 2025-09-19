@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Right Grotesk Tall Fine';
+    src: url('RightGrotesk-TallFine.woff2') format('woff2'),
+        url('RightGrotesk-TallFine.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Right Grotesk Compact';
+    src: url('RightGrotesk-CompactBlack.woff2') format('woff2'),
+        url('RightGrotesk-CompactBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Right Grotesk';
+    src: url('RightGrotesk-Medium.woff2') format('woff2'),
+        url('RightGrotesk-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Right Grotesk Tight';
+    src: url('RightGrotesk-TightMedium.woff2') format('woff2'),
+        url('RightGrotesk-TightMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Right Grotesk Spatial';
+    src: url('RightGrotesk-SpatialBlack.woff2') format('woff2'),
+        url('RightGrotesk-SpatialBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Right Grotesk Wide';
+    src: url('RightGrotesk-WideMedium.woff2') format('woff2'),
+        url('RightGrotesk-WideMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Right Grotesk Narrow';
+    src: url('RightGrotesk-NarrowLight.woff2') format('woff2'),
+        url('RightGrotesk-NarrowLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+

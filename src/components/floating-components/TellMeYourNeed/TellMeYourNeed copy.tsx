@@ -1,39 +1,14 @@
 'use client';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import { Button } from '../../ui/button';
 import { LeftArrowIcon, ProgressStepFourIcon, ProgressStepThreeIcon, MsgIcon } from '../../icon';
 import CloseButton from './CloseButton';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { formValidation, FormValidationData } from './formValidation';
 
 export default function TellMeYourNeed() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [selectedOptionsStep2, setSelectedOptionsStep2] = useState<string[]>([]);
-  const [selectedOptionsStep3, setSelectedOptionsStep3] = useState<string[]>([]);
-  
-  // React Hook Form setup
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-    reset,
-    watch
-  } = useForm<FormValidationData>({
-    resolver: zodResolver(formValidation),
-    mode: 'onChange', // Validate on change for real-time feedback
-    defaultValues: {
-      name: '',
-      email: '',
-      additionalInfo: ''
-    }
-  });
-
-  // Watch form values for submit button state
-  const formValues = watch();
+  const [currentStep, setCurrentStep] = useState(0); // 0 = default step, 1-5 for the steps
 
   const stepThreeList = [
     {
@@ -103,35 +78,6 @@ export default function TellMeYourNeed() {
 
   const resetToDefault = () => {
     setCurrentStep(0);
-    setSelectedOptionsStep2([]);
-    setSelectedOptionsStep3([]);
-    reset(); // Reset form
-  };
-
-  // Form submission handler
-  const onSubmit = (data: FormValidationData) => {
-    console.log('Form data:', data);
-    nextStep(); // Proceed to next step
-  };
-
-  const handleStep2Selection = (id: string) => {
-    setSelectedOptionsStep2(prev => {
-      if (prev.includes(id)) {
-        return prev.filter(item => item !== id);
-      } else {
-        return [...prev, id];
-      }
-    });
-  };
-
-  const handleStep3Selection = (id: string) => {
-    setSelectedOptionsStep3(prev => {
-      if (prev.includes(id)) {
-        return prev.filter(item => item !== id);
-      } else {
-        return [...prev, id];
-      }
-    });
   };
 
   return (
@@ -172,13 +118,7 @@ export default function TellMeYourNeed() {
             <p className="text-white text-xl font-medium leading-7">I need...</p>
             <div className="flex flex-col gap-6 w-full">
               {stepThreeList.map(list => (
-                <button
-                  key={list.id}
-                  className={`flex cursor-pointer bg-transparent text-left gap-6 text-base font-normal leading-5 break-words whitespace-normal ${
-                    selectedOptionsStep2.includes(list.id) ? 'text-white' : 'text-stone-500'
-                  }`}
-                  onClick={() => handleStep2Selection(list.id)}
-                >
+                <button key={list.id} className="flex cursor-pointer bg-transparent text-left gap-6 text-stone-500 text-base font-normal leading-5 break-words whitespace-normal">
                   <span>{list.id}</span>
                   <span>{list.label}</span>
                 </button>
@@ -192,27 +132,16 @@ export default function TellMeYourNeed() {
                 <ProgressStepThreeIcon />
               </button>
 
-              <div className={`ml-auto flex items-center gap-4 ${selectedOptionsStep2.length > 0 ? 'group' : ''}`}>
-                <span className={`text-white text-base font-normal leading-tight ${selectedOptionsStep2.length > 0 ? 'group-hover:inline hidden' : 'hidden'}`}>
-                  {selectedOptionsStep2.length === 1 ? 'Is that all?' : 'Anything else?'}
-                </span>
+              <div className="ml-auto flex items-center gap-4 group">
+                <span className="text-white text-base font-normal leading-tight hidden group-hover:inline">Is that all?</span>
 
                 <Button
                   variant="customBtn"
-                  className={`max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] ${
-                    selectedOptionsStep2.length > 0 ? 'bg-[#15251F] border-[#6EE7B7]/20 hover:bg-[#15251F] hover:border hover:border-[#6EE7B7]/20' : 'bg-[#262626] cursor-not-allowed opacity-50'
-                  }`}
+                  className="bg-[#262626] group-hover:bg-[#15251F] group-hover:border group-hover:border-[#6EE7B7]/20 max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)]"
                   onClick={nextStep}
-                  disabled={selectedOptionsStep2.length === 0}
                 >
-                  {selectedOptionsStep2.length > 0 ? (
-                    <>
-                      <span className="block group-hover:hidden">Continue</span>
-                      <span className="hidden group-hover:block">Yeah! Continue</span>
-                    </>
-                  ) : (
-                    'Continue'
-                  )}
+                  <span className="block group-hover:hidden">Continue</span>
+                  <span className="hidden group-hover:block">Yeah! Continue</span>
                 </Button>
               </div>
             </div>
@@ -231,13 +160,7 @@ export default function TellMeYourNeed() {
             <p className="text-white text-xl font-medium leading-7">But...</p>
             <div className="flex flex-col gap-6 w-full">
               {stepFourList.map(list => (
-                <button
-                  key={list.id}
-                  className={`flex cursor-pointer bg-transparent text-left gap-6 text-base font-normal leading-5 break-words whitespace-normal ${
-                    selectedOptionsStep3.includes(list.id) ? 'text-white' : 'text-stone-500'
-                  }`}
-                  onClick={() => handleStep3Selection(list.id)}
-                >
+                <button key={list.id} className="flex cursor-pointer bg-transparent text-left gap-6 text-stone-500 text-base font-normal leading-5 break-words whitespace-normal">
                   <span>{list.id}</span>
                   <span>{list.label}</span>
                 </button>
@@ -251,27 +174,16 @@ export default function TellMeYourNeed() {
                 <ProgressStepFourIcon />
               </button>
 
-              <div className={`ml-auto flex items-center gap-4 ${selectedOptionsStep3.length > 0 ? 'group' : ''}`}>
-                <span className={`text-white text-base font-normal leading-tight ${selectedOptionsStep3.length > 0 ? 'group-hover:inline hidden' : 'hidden'}`}>
-                  {selectedOptionsStep3.length === 1 ? 'Is that all?' : 'Anything else?'}
-                </span>
+              <div className="ml-auto flex items-center gap-4 group">
+                <span className="text-white text-base font-normal leading-tight hidden group-hover:inline">Is that all?</span>
 
                 <Button
                   variant="customBtn"
-                  className={`max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] ${
-                    selectedOptionsStep3.length > 0 ? 'bg-[#15251F] border-[#6EE7B7]/20 hover:bg-[#15251F] hover:border hover:border-[#6EE7B7]/20' : 'bg-[#262626] cursor-not-allowed opacity-50'
-                  }`}
+                  className="bg-[#262626] group-hover:bg-[#15251F] group-hover:border group-hover:border-[#6EE7B7]/20 max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)]"
                   onClick={nextStep}
-                  disabled={selectedOptionsStep3.length === 0}
                 >
-                  {selectedOptionsStep3.length > 0 ? (
-                    <>
-                      <span className="block group-hover:hidden">Continue</span>
-                      <span className="hidden group-hover:block">Yeah! Continue</span>
-                    </>
-                  ) : (
-                    'Continue'
-                  )}
+                  <span className="block group-hover:hidden">Continue</span>
+                  <span className="hidden group-hover:block">Yeah! Continue</span>
                 </Button>
               </div>
             </div>
@@ -289,43 +201,23 @@ export default function TellMeYourNeed() {
           <div className="flex flex-col gap-6 w-full">
             <p className="max-w-[320px] text-white text-xl font-medium leading-7">Almost there! Tell me a bit about yourself to wrap it up.</p>
             <div className="flex flex-col gap-6 w-full">
-              <div className="flex flex-col gap-2">
-                <Input
-                  type="text"
-                  placeholder="Your name"
-                  {...register('name')}
-                  className="h-12 p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
-                placeholder:text-stone-500 text-base font-normal leading-tight"
-                />
-                {errors.name && (
-                  <span className="text-red-400 text-sm">{errors.name.message}</span>
-                )}
-              </div>
-              
-              <div className="flex flex-col gap-2">
-                <Input
-                  type="email"
-                  placeholder="Your email"
-                  {...register('email')}
-                  className="h-12 p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
-                placeholder:text-stone-500 text-base font-normal leading-tight"
-                />
-                {errors.email && (
-                  <span className="text-red-400 text-sm">{errors.email.message}</span>
-                )}
-              </div>
-              
-              <div className="flex flex-col gap-2">
-                <Textarea
-                  placeholder="Any other thing? (Optional)"
-                  {...register('additionalInfo')}
-                  className="h-[172px] p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
-                placeholder:text-stone-500 text-base font-normal leading-tight"
-                />
-                {errors.additionalInfo && (
-                  <span className="text-red-400 text-sm">{errors.additionalInfo.message}</span>
-                )}
-              </div>
+              <Input
+                type="text"
+                placeholder="Your name"
+                className="h-12 p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
+            placeholder:text-stone-500 text-base font-normal leading-tight"
+              />
+              <Input
+                type="email"
+                placeholder="Your email"
+                className="h-12 p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
+            placeholder:text-stone-500 text-base font-normal leading-tight"
+              />
+              <Textarea
+                placeholder="Any other thing? (Optional)"
+                className="h-[172px] p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
+            placeholder:text-stone-500 text-base font-normal leading-tight"
+              />
             </div>
             <div className="flex items-center gap-1">
               <button className="cta-btn" onClick={prevStep}>
@@ -338,11 +230,8 @@ export default function TellMeYourNeed() {
               <div className="ml-auto flex items-center gap-4">
                 <Button
                   variant="customBtn"
-                  className={`max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] ${
-                    isValid ? 'bg-[#15251F] border-[#6EE7B7]/20 hover:bg-[#15251F] hover:border hover:border-[#6EE7B7]/20' : 'bg-[#262626] cursor-not-allowed opacity-50'
-                  }`}
-                  onClick={handleSubmit(onSubmit)}
-                  disabled={!isValid}
+                  className="bg-[#262626] group-hover:bg-[#15251F] group-hover:border group-hover:border-[#6EE7B7]/20 max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)]"
+                  onClick={nextStep}
                 >
                   Send
                 </Button>
