@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import HeaderSection from '@/components/header/HeaderSection';
+import TellMeYourNeed from '@/components/floating-components/TellMeYourNeed/TellMeYourNeed';
+import PlayerButton from '@/components/floating-components/PlayerButton';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -24,6 +26,8 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased`}>
         <HeaderSection />
         <main className='mt-[85px]'>{children}</main>
+        <TellMeYourNeed />
+        <PlayerButton />
       </body>
     </html>
   );

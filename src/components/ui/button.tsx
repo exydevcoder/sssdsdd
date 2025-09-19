@@ -20,7 +20,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        customBtn: "bg-[#15251F] border border-[#6EE7B7]/20 w-[154px] h-[42px] text-emerald-300 text-sm font-medium leading-[20px] flex items-center justify-center gap-[8px] px-[16px] py-[10px] rounded-[11px] cursor-pointer"
+        customBtn: "bg-[#15251F] border border-[#6EE7B7]/20 w-[154px] h-[42px] text-emerald-300 text-sm font-medium leading-[20px] flex items-center justify-center gap-[8px] px-[16px] py-[10px] rounded-[11px] cursor-pointer",
+        ctaBtn: "w-[40px] h-[40px] flex items-center justify-center bg-[#262626] rounded-[12px] cursor-pointer"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
