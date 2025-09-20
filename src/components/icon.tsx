@@ -1,15 +1,8 @@
-import * as React from "react";
-import { SVGProps } from "react";
+import * as React from 'react';
+import { SVGProps } from 'react';
 
 export const MsgIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={20}
-    height={20}
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M18.9829 9.44481C18.8745 7.69157 18.2555 6.00838 17.202 4.60272C16.1486 3.19706 14.7069 2.13039 13.0546 1.53421C11.4023 0.938036 9.61161 0.838413 7.90336 1.24762C6.19512 1.65684 4.64396 2.557 3.44112 3.83713C2.23828 5.11726 1.43634 6.7214 1.13417 8.45179C0.831997 10.1822 1.0428 11.9632 1.74059 13.5752C2.43838 15.1872 3.59266 16.5598 5.06112 17.5238C6.52957 18.4877 8.24801 19.0009 10.0046 19H15.2366C16.2299 18.999 17.1822 18.604 17.8845 17.9017C18.5869 17.1993 18.9819 16.247 18.9829 15.2537V9.44481ZM17.4844 15.2537C17.4844 15.8499 17.2475 16.4216 16.826 16.8431C16.4045 17.2647 15.8327 17.5015 15.2366 17.5015H10.0046C8.94735 17.501 7.90208 17.2777 6.93693 16.8461C5.97179 16.4146 5.10844 15.7844 4.40319 14.9968C3.69453 14.2095 3.16238 13.2798 2.84242 12.2701C2.52247 11.2603 2.4221 10.1938 2.54805 9.14211C2.74693 7.48322 3.49225 5.9377 4.66651 4.74919C5.84078 3.56068 7.37719 2.79679 9.03356 2.57792C9.35666 2.53743 9.68196 2.51691 10.0076 2.51648C11.7537 2.51172 13.4458 3.12181 14.7871 4.23976C15.5704 4.89082 16.2134 5.69417 16.6771 6.60112C17.1407 7.50807 17.4154 8.49973 17.4844 9.51598V15.2537Z"
       fill="#D4D4D4"
@@ -22,14 +15,7 @@ export const MsgIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export const LeftArrowIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={20}
-    height={20}
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M0.733087 11.7416L3.95809 14.9999C4.03556 15.078 4.12772 15.14 4.22927 15.1823C4.33082 15.2246 4.43974 15.2464 4.54975 15.2464C4.65976 15.2464 4.76868 15.2246 4.87023 15.1823C4.97178 15.14 5.06395 15.078 5.14142 14.9999C5.21953 14.9224 5.28152 14.8303 5.32383 14.7287C5.36614 14.6272 5.38792 14.5183 5.38792 14.4083C5.38792 14.2982 5.36614 14.1893 5.32383 14.0878C5.28152 13.9862 5.21953 13.8941 5.14142 13.8166L2.17475 10.8333H19.1664C19.3874 10.8333 19.5994 10.7455 19.7557 10.5892C19.912 10.4329 19.9998 10.2209 19.9998 9.99992C19.9998 9.7789 19.912 9.56694 19.7557 9.41066C19.5994 9.25438 19.3874 9.16658 19.1664 9.16658H2.12475L5.14142 6.14992C5.28916 5.99494 5.37158 5.78903 5.37158 5.57492C5.37158 5.3608 5.28916 5.1549 5.14142 4.99992C5.06395 4.92181 4.97178 4.85981 4.87023 4.81751C4.76868 4.7752 4.65976 4.75342 4.54975 4.75342C4.43974 4.75342 4.33082 4.7752 4.22927 4.81751C4.12772 4.85981 4.03556 4.92181 3.95809 4.99992L0.733087 8.20825C0.264918 8.677 0.00195313 9.31242 0.00195312 9.97492C0.00195312 10.6374 0.264918 11.2728 0.733087 11.7416Z"
       fill="#D4D4D4"
@@ -37,15 +23,8 @@ export const LeftArrowIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const ProgressStepThreeIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={20}
-    height={20}
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+export const ProgressStepTwoIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM1.5 10C1.5 14.6944 5.30558 18.5 10 18.5C14.6944 18.5 18.5 14.6944 18.5 10C18.5 5.30558 14.6944 1.5 10 1.5C5.30558 1.5 1.5 5.30558 1.5 10Z"
       fill="#313131"
@@ -62,15 +41,8 @@ export const ProgressStepThreeIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const ProgressStepFourIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={20}
-    height={20}
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+export const ProgressStepThreeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM1.5 10C1.5 14.6944 5.30558 18.5 10 18.5C14.6944 18.5 18.5 14.6944 18.5 10C18.5 5.30558 14.6944 1.5 10 1.5C5.30558 1.5 1.5 5.30558 1.5 10Z"
       fill="#313131"
@@ -84,5 +56,85 @@ export const ProgressStepFourIcon = (props: SVGProps<SVGSVGElement>) => (
       d="M17 10C17 11.2288 16.6766 12.4359 16.0622 13.5C15.4478 14.5641 14.5641 15.4478 13.5 16.0622C12.4359 16.6766 11.2288 17 10 17C8.77124 17 7.56413 16.6766 6.5 16.0622C5.43587 15.4478 4.5522 14.5641 3.93782 13.5C3.32344 12.4359 3 11.2288 3 10C3 8.77124 3.32344 7.56413 3.93782 6.5C4.5522 5.43586 5.43587 4.5522 6.5 3.93782L10 10H17Z"
       fill="#6EE7B7"
     />
+  </svg>
+);
+
+export const ProgressStepFourIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM1.5 10C1.5 14.6944 5.30558 18.5 10 18.5C14.6944 18.5 18.5 14.6944 18.5 10C18.5 5.30558 14.6944 1.5 10 1.5C5.30558 1.5 1.5 5.30558 1.5 10Z"
+      fill="#313131"
+    />
+    <circle cx={10} cy={10} r={7} fill="#313131" />
+    <path
+      d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM1.5 10C1.5 14.6944 5.30558 18.5 10 18.5C14.6944 18.5 18.5 14.6944 18.5 10C18.5 5.30558 14.6944 1.5 10 1.5C5.30558 1.5 1.5 5.30558 1.5 10Z"
+      fill="#6EE7B7"
+    />
+    <circle cx={10} cy={10} r={7} fill="#6EE7B7" />
+  </svg>
+);
+
+export const CheckedIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={18} height={20} viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M13.3337 6L6.00033 13.3333L2.66699 10" stroke="#6EE7B7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const AudioPlayWaveIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={32} height={20} viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g>
+      {/* Bar 1 - Short */}
+      <rect x={5.166504} y={8} width={1.66667} height={4} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 2 - Medium */}
+      <rect x={10.1665} y={6} width={1.66667} height={8} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 3 - Tall (center bar) */}
+      <rect x={15.1665} y={2} width={1.66667} height={16} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 4 - Medium-tall */}
+      <rect x={20.1665} y={6} width={1.66667} height={8} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 5 - Medium */}
+      <rect x={25.1665} y={8} width={1.66667} height={4} rx={0.833333} fill="#FFFFFF" />
+    </g>
+  </svg>
+);
+
+// Alternative animated version
+export const AudioPlayWaveIconAnimated = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={32} height={20} viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <style>
+      {`
+        .wave-bar {
+          animation: wave 1.2s ease-in-out infinite;
+          transform-origin: center;
+        }
+        .wave-bar-1 { animation-delay: 0s; }
+        .wave-bar-2 { animation-delay: 0.15s; }
+        .wave-bar-3 { animation-delay: 0.3s; }
+        .wave-bar-4 { animation-delay: 0.45s; }
+        .wave-bar-5 { animation-delay: 0.6s; }
+        
+        @keyframes wave {
+          0%, 100% { 
+            transform: scaleY(0.3);
+            opacity: 0.7;
+          }
+          50% { 
+            transform: scaleY(1);
+            opacity: 1;
+          }
+        }
+      `}
+    </style>
+    <g>
+      {/* Bar 1 - Short */}
+      <rect className="wave-bar wave-bar-1" x={5.166504} y={8} width={1.66667} height={4} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 2 - Medium */}
+      <rect className="wave-bar wave-bar-2" x={10.1665} y={6} width={1.66667} height={8} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 3 - Tall (center bar) */}
+      <rect className="wave-bar wave-bar-3" x={15.1665} y={2} width={1.66667} height={16} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 4 - Medium-tall */}
+      <rect className="wave-bar wave-bar-4" x={20.1665} y={6} width={1.66667} height={8} rx={0.833333} fill="#FFFFFF" />
+      {/* Bar 5 - Medium */}
+      <rect className="wave-bar wave-bar-5" x={25.1665} y={8} width={1.66667} height={4} rx={0.833333} fill="#FFFFFF" />
+    </g>
   </svg>
 );

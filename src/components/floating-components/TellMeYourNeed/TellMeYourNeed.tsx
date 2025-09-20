@@ -1,19 +1,32 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Image from 'next/image';
-import { Button } from '../../ui/button';
-import { LeftArrowIcon, ProgressStepFourIcon, ProgressStepThreeIcon, MsgIcon } from '../../icon';
-import CloseButton from './CloseButton';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { gsap } from 'gsap';
 import { formValidation, FormValidationData } from './formValidation';
+import Step0 from './StepsComponents/Step0';
+import Step1 from './StepsComponents/Step1';
+import Step2 from './StepsComponents/Step2';
+import Step3 from './StepsComponents/Step3';
+import Step4 from './StepsComponents/Step4';
+import Step5 from './StepsComponents/Step5';
+import { stepThreeList, stepFourList } from './stepLists'; // Import your step lists
+
+// Extended interface to include all user data
+interface UserSubmissionData extends FormValidationData {
+  needs: string[];
+  buts: string[];
+}
 
 export default function TellMeYourNeed() {
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedOptionsStep2, setSelectedOptionsStep2] = useState<string[]>([]);
   const [selectedOptionsStep3, setSelectedOptionsStep3] = useState<string[]>([]);
+  const [isAnimating, setIsAnimating] = useState(false);
+  
+  // Refs for GSAP animations
+  const containerRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   
   // React Hook Form setup
   const {
@@ -21,355 +34,247 @@ export default function TellMeYourNeed() {
     handleSubmit,
     formState: { errors, isValid },
     reset,
-    watch
   } = useForm<FormValidationData>({
     resolver: zodResolver(formValidation),
-    mode: 'onChange', // Validate on change for real-time feedback
+    mode: 'onChange',
     defaultValues: {
       name: '',
       email: '',
-      additionalInfo: ''
+      message: ''
     }
   });
 
-  // Watch form values for submit button state
-  const formValues = watch();
+  // Animation function for step transitions
+  const animateStepTransition = (fromStep: number, toStep: number) => {
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    const currentStepEl = stepRefs.current[fromStep];
+    const nextStepEl = stepRefs.current[toStep];
+    
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setCurrentStep(toStep);
+        setIsAnimating(false);
+      }
+    });
 
-  const stepThreeList = [
-    {
-      id: '01',
-      label: "to design my app or website so it's simple and easy to use for our target audience"
-    },
-    {
-      id: '02',
-      label: 'a logo & brand identity assets that represents our business and connects with our target audience'
-    },
-    {
-      id: '03',
-      label: 'a modern, responsive landing page or website built in Webflow, Framer, or Shopify for my business'
-    },
-    {
-      id: '04',
-      label: 'animations and motion graphics that bring our brand to life and connects with our target audience'
-    },
-    {
-      id: '05',
-      label: 'something else'
+    if (currentStepEl) {
+      // Animate current step out with bubble pop effect
+      tl.to(currentStepEl, {
+        scale: 0.8,
+        opacity: 0,
+        y: toStep > fromStep ? -30 : 30,
+        duration: 0.8,
+        ease: "back.in(1.7)"
+      });
     }
-  ];
 
-  const stepFourList = [
-    {
-      id: '01',
-      label: 'I need this ASAP.'
-    },
-    {
-      id: '02',
-      label: 'My budget is tight'
-    },
-    {
-      id: '03',
-      label: "I don't want it to feel generic"
-    },
-    {
-      id: '04',
-      label: "I can't change platform"
-    },
-    {
-      id: '05',
-      label: "I don't have brand guidelines"
-    },
-    {
-      id: '06',
-      label: 'I want to keep my logo & colors'
-    },
-    {
-      id: '07',
-      label: 'No but'
+    if (nextStepEl) {
+      // Set initial state for next step
+      gsap.set(nextStepEl, {
+        scale: 0.8,
+        opacity: 0,
+        y: toStep > fromStep ? 30 : -30
+      });
+
+      // Animate next step in with bubble expansion effect
+      tl.to(nextStepEl, {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "back.out(1.7)"
+      }, "-=0.1");
     }
-  ];
+  };
 
+  // Enhanced step navigation with animations
   const nextStep = () => {
-    if (currentStep < 5) {
-      setCurrentStep(currentStep + 1);
+    if (currentStep < 5 && !isAnimating) {
+      animateStepTransition(currentStep, currentStep + 1);
     }
   };
 
   const prevStep = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+    if (currentStep > 0 && !isAnimating) {
+      animateStepTransition(currentStep, currentStep - 1);
     }
   };
 
   const resetToDefault = () => {
-    setCurrentStep(0);
-    setSelectedOptionsStep2([]);
-    setSelectedOptionsStep3([]);
-    reset(); // Reset form
+    if (!isAnimating) {
+      const currentStepEl = stepRefs.current[currentStep];
+      
+      if (currentStepEl) {
+        gsap.to(currentStepEl, {
+          scale: 0.8,
+          opacity: 0,
+          y: -30,
+          duration: 0.3,
+          ease: "back.in(1.7)",
+          onComplete: () => {
+            setCurrentStep(0);
+            setSelectedOptionsStep2([]);
+            setSelectedOptionsStep3([]);
+            reset();
+            
+            // Animate step 0 in
+            const step0El = stepRefs.current[0];
+            if (step0El) {
+              gsap.fromTo(step0El, 
+                { scale: 0.8, opacity: 0, y: 30 },
+                { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }
+              );
+            }
+          }
+        });
+      } else {
+        setCurrentStep(0);
+        setSelectedOptionsStep2([]);
+        setSelectedOptionsStep3([]);
+        reset();
+      }
+    }
   };
 
-  // Form submission handler
-  const onSubmit = (data: FormValidationData) => {
-    console.log('Form data:', data);
-    nextStep(); // Proceed to next step
+  // Helper function to get labels from IDs
+  const getLabelsFromIds = (ids: string[], list: Array<{id: string, label: string}>) => {
+    return ids.map(id => {
+      const item = list.find(item => item.id === id);
+      return item ? item.label : '';
+    }).filter(label => label !== '');
+  };
+
+  // Form submission handler - now includes all user data in one object
+  const onSubmit = (formData: FormValidationData) => {
+    // Convert IDs to labels
+    const needs = getLabelsFromIds(selectedOptionsStep2, stepThreeList);
+    const buts = getLabelsFromIds(selectedOptionsStep3, stepFourList);
+
+    // Combine all data into one object
+    const userData: UserSubmissionData = {
+      ...formData,
+      needs,
+      buts
+    };
+
+    console.log('User submission data:', userData);
+    
+    // Here you would typically send this data to your API
+    // Example: sendToAPI(userData);
+    
+    nextStep();
+  };
+
+  // Animate step on mount
+  useEffect(() => {
+    const currentStepEl = stepRefs.current[currentStep];
+    if (currentStepEl && currentStep === 0) {
+      gsap.fromTo(currentStepEl,
+        { scale: 0.8, opacity: 0, y: 30 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.7)" }
+      );
+    }
+  }, [currentStep]);
+
+  // Set refs for each step
+  const setStepRef = (index: number) => (el: HTMLDivElement | null) => {
+    stepRefs.current[index] = el;
   };
 
   const handleStep2Selection = (id: string) => {
-    setSelectedOptionsStep2(prev => {
-      if (prev.includes(id)) {
-        return prev.filter(item => item !== id);
-      } else {
-        return [...prev, id];
-      }
-    });
+    if (!isAnimating) {
+      setSelectedOptionsStep2(prev => {
+        if (prev.includes(id)) {
+          return prev.filter(item => item !== id);
+        } else {
+          return [...prev, id];
+        }
+      });
+    }
   };
 
   const handleStep3Selection = (id: string) => {
-    setSelectedOptionsStep3(prev => {
-      if (prev.includes(id)) {
-        return prev.filter(item => item !== id);
-      } else {
-        return [...prev, id];
-      }
-    });
+    if (!isAnimating) {
+      setSelectedOptionsStep3(prev => {
+        if (prev.includes(id)) {
+          return prev.filter(item => item !== id);
+        } else {
+          return [...prev, id];
+        }
+      });
+    }
   };
 
   return (
-    <>
-      {/* default: Step 0 */}
+    <div ref={containerRef} className="fixed z-50 bottom-4 left-1/2 transform -translate-x-1/2">
+      {/* Step 0 */}
       {currentStep === 0 && (
-        <div className="p-1.5 pl-4 mb-5 flex items-center justify-between w-[279px] min-h-[52px] bg-[#121212] border border-white/10 rounded-2xl fixed bottom-3 left-1/2 transform -translate-x-1/2">
-          <p className="text-neutral-300 text-nowrap text-base font-normal leading-7">Tell me about your needs</p>
-          <div className="w-full flex items-end justify-end">
-            <button className="cta-btn" onClick={nextStep}>
-              <MsgIcon />
-            </button>
-          </div>
-        </div>
+        <Step0
+          ref={setStepRef(0)}
+          onNext={nextStep}
+          isAnimating={isAnimating}
+        />
       )}
 
       {/* Step 1 */}
       {currentStep === 1 && (
-        <div className="p-6 mb-5 flex flex-col items-center justify-between max-w-[450px] min-h-[100px] bg-[#121212] border border-emerald-300 rounded-2xl fixed bottom-3 left-1/2 transform -translate-x-1/2">
-          <div className="text-white text-xl font-medium leading-7">
-            <p>Welcome 👋 I'm Olawale</p>
-            <p>To save you time, tell me a bit about your needs so we can focus on the right things</p>
-            <Button variant="customBtn" className="mt-4" onClick={nextStep}>
-              Yeap! No Problem
-            </Button>
-          </div>
-
-          <div className="w-full flex items-end justify-end mt-6">
-            <CloseButton onClick={resetToDefault} />
-          </div>
-        </div>
+        <Step1
+          ref={setStepRef(1)}
+          onNext={nextStep}
+          onClose={resetToDefault}
+          isAnimating={isAnimating}
+        />
       )}
 
       {/* Step 2 */}
       {currentStep === 2 && (
-        <div className="p-6 mb-5 flex flex-col items-center justify-between max-w-[491px] min-h-[100px] bg-[#121212] border border-emerald-300 rounded-2xl fixed bottom-3 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col gap-6 w-full">
-            <p className="text-white text-xl font-medium leading-7">I need...</p>
-            <div className="flex flex-col gap-6 w-full">
-              {stepThreeList.map(list => (
-                <button
-                  key={list.id}
-                  className={`flex cursor-pointer bg-transparent text-left gap-6 text-base font-normal leading-5 break-words whitespace-normal ${
-                    selectedOptionsStep2.includes(list.id) ? 'text-white' : 'text-stone-500'
-                  }`}
-                  onClick={() => handleStep2Selection(list.id)}
-                >
-                  <span>{list.id}</span>
-                  <span>{list.label}</span>
-                </button>
-              ))}
-            </div>
-            <div className="flex items-center gap-1">
-              <button className="cta-btn" onClick={prevStep}>
-                <LeftArrowIcon />
-              </button>
-              <button className="cta-btn">
-                <ProgressStepThreeIcon />
-              </button>
-
-              <div className={`ml-auto flex items-center gap-4 ${selectedOptionsStep2.length > 0 ? 'group' : ''}`}>
-                <span className={`text-white text-base font-normal leading-tight ${selectedOptionsStep2.length > 0 ? 'group-hover:inline hidden' : 'hidden'}`}>
-                  {selectedOptionsStep2.length === 1 ? 'Is that all?' : 'Anything else?'}
-                </span>
-
-                <Button
-                  variant="customBtn"
-                  className={`max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] ${
-                    selectedOptionsStep2.length > 0 ? 'bg-[#15251F] border-[#6EE7B7]/20 hover:bg-[#15251F] hover:border hover:border-[#6EE7B7]/20' : 'bg-[#262626] cursor-not-allowed opacity-50'
-                  }`}
-                  onClick={nextStep}
-                  disabled={selectedOptionsStep2.length === 0}
-                >
-                  {selectedOptionsStep2.length > 0 ? (
-                    <>
-                      <span className="block group-hover:hidden">Continue</span>
-                      <span className="hidden group-hover:block">Yeah! Continue</span>
-                    </>
-                  ) : (
-                    'Continue'
-                  )}
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex items-end justify-end mt-6">
-            <CloseButton onClick={resetToDefault} />
-          </div>
-        </div>
+        <Step2
+          ref={setStepRef(2)}
+          selectedOptions={selectedOptionsStep2}
+          onSelection={handleStep2Selection}
+          onNext={nextStep}
+          onPrev={prevStep}
+          onClose={resetToDefault}
+          isAnimating={isAnimating}
+        />
       )}
 
       {/* Step 3 */}
       {currentStep === 3 && (
-        <div className="p-6 mb-5 flex flex-col items-center justify-between min-w-[491px] min-h-[100px] bg-[#121212] border border-emerald-300 rounded-2xl fixed bottom-3 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col gap-6 w-full">
-            <p className="text-white text-xl font-medium leading-7">But...</p>
-            <div className="flex flex-col gap-6 w-full">
-              {stepFourList.map(list => (
-                <button
-                  key={list.id}
-                  className={`flex cursor-pointer bg-transparent text-left gap-6 text-base font-normal leading-5 break-words whitespace-normal ${
-                    selectedOptionsStep3.includes(list.id) ? 'text-white' : 'text-stone-500'
-                  }`}
-                  onClick={() => handleStep3Selection(list.id)}
-                >
-                  <span>{list.id}</span>
-                  <span>{list.label}</span>
-                </button>
-              ))}
-            </div>
-            <div className="flex items-center gap-1">
-              <button className="cta-btn" onClick={prevStep}>
-                <LeftArrowIcon />
-              </button>
-              <button className="cta-btn">
-                <ProgressStepFourIcon />
-              </button>
-
-              <div className={`ml-auto flex items-center gap-4 ${selectedOptionsStep3.length > 0 ? 'group' : ''}`}>
-                <span className={`text-white text-base font-normal leading-tight ${selectedOptionsStep3.length > 0 ? 'group-hover:inline hidden' : 'hidden'}`}>
-                  {selectedOptionsStep3.length === 1 ? 'Is that all?' : 'Anything else?'}
-                </span>
-
-                <Button
-                  variant="customBtn"
-                  className={`max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] ${
-                    selectedOptionsStep3.length > 0 ? 'bg-[#15251F] border-[#6EE7B7]/20 hover:bg-[#15251F] hover:border hover:border-[#6EE7B7]/20' : 'bg-[#262626] cursor-not-allowed opacity-50'
-                  }`}
-                  onClick={nextStep}
-                  disabled={selectedOptionsStep3.length === 0}
-                >
-                  {selectedOptionsStep3.length > 0 ? (
-                    <>
-                      <span className="block group-hover:hidden">Continue</span>
-                      <span className="hidden group-hover:block">Yeah! Continue</span>
-                    </>
-                  ) : (
-                    'Continue'
-                  )}
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex items-end justify-end mt-6">
-            <CloseButton onClick={resetToDefault} />
-          </div>
-        </div>
+        <Step3
+          ref={setStepRef(3)}
+          selectedOptions={selectedOptionsStep3}
+          onSelection={handleStep3Selection}
+          onNext={nextStep}
+          onPrev={prevStep}
+          onClose={resetToDefault}
+          isAnimating={isAnimating}
+        />
       )}
 
       {/* Step 4 */}
       {currentStep === 4 && (
-        <div className="p-6 mb-5 flex flex-col z-50 items-center justify-between min-w-[491px] min-h-[100px] bg-[#121212] border border-emerald-300 rounded-2xl fixed bottom-3 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col gap-6 w-full">
-            <p className="max-w-[320px] text-white text-xl font-medium leading-7">Almost there! Tell me a bit about yourself to wrap it up.</p>
-            <div className="flex flex-col gap-6 w-full">
-              <div className="flex flex-col gap-2">
-                <Input
-                  type="text"
-                  placeholder="Your name"
-                  {...register('name')}
-                  className="h-12 p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
-                placeholder:text-stone-500 text-base font-normal leading-tight"
-                />
-                {errors.name && (
-                  <span className="text-red-400 text-sm">{errors.name.message}</span>
-                )}
-              </div>
-              
-              <div className="flex flex-col gap-2">
-                <Input
-                  type="email"
-                  placeholder="Your email"
-                  {...register('email')}
-                  className="h-12 p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
-                placeholder:text-stone-500 text-base font-normal leading-tight"
-                />
-                {errors.email && (
-                  <span className="text-red-400 text-sm">{errors.email.message}</span>
-                )}
-              </div>
-              
-              <div className="flex flex-col gap-2">
-                <Textarea
-                  placeholder="Any other thing? (Optional)"
-                  {...register('additionalInfo')}
-                  className="h-[172px] p-4 bg-neutral-900 text-[#6EE7B7] border border-white/10 rounded-2xl shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] outline outline-offset-[-1px] outline-white/10 backdrop-blur-md
-                placeholder:text-stone-500 text-base font-normal leading-tight"
-                />
-                {errors.additionalInfo && (
-                  <span className="text-red-400 text-sm">{errors.additionalInfo.message}</span>
-                )}
-              </div>
-            </div>
-            <div className="flex items-center gap-1">
-              <button className="cta-btn" onClick={prevStep}>
-                <LeftArrowIcon />
-              </button>
-              <button className="cta-btn">
-                <ProgressStepFourIcon />
-              </button>
-
-              <div className="ml-auto flex items-center gap-4">
-                <Button
-                  variant="customBtn"
-                  className={`max-w-max text-neutral-300 border border-[#686868]/12 shadow-[inset_0px_0px_0px_1px_rgba(255,255,255,0.10)] ${
-                    isValid ? 'bg-[#15251F] border-[#6EE7B7]/20 hover:bg-[#15251F] hover:border hover:border-[#6EE7B7]/20' : 'bg-[#262626] cursor-not-allowed opacity-50'
-                  }`}
-                  onClick={handleSubmit(onSubmit)}
-                  disabled={!isValid}
-                >
-                  Send
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex items-end justify-end mt-6">
-            <CloseButton onClick={resetToDefault} />
-          </div>
-        </div>
+        <Step4
+          ref={setStepRef(4)}
+          register={register}
+          errors={errors}
+          isValid={isValid}
+          onSubmit={handleSubmit(onSubmit)}
+          onPrev={prevStep}
+          onClose={resetToDefault}
+          isAnimating={isAnimating}
+        />
       )}
 
       {/* Step 5 */}
       {currentStep === 5 && (
-        <div className="p-6 mb-5 flex flex-col z-50 items-center justify-between max-w-[491px] bg-[#121212] border border-emerald-300 rounded-2xl fixed bottom-3 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col gap-6 w-full">
-            <p className="lastStepStyle text-emerald-300 text-6xl font-medium leading-[128px]">Thank you 🙌</p>
-
-            <p className='max-w-[443px] text-white text-xl font-medium leading-7"'>Allow me to review your request and get back to you shortly. See you in a bit</p>
-          </div>
-
-          <div className="w-full flex items-end justify-end mt-6">
-            <CloseButton onClick={resetToDefault} />
-          </div>
-        </div>
+        <Step5
+          ref={setStepRef(5)}
+          onClose={resetToDefault}
+        />
       )}
-    </>
+    </div>
   );
 }

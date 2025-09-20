@@ -64,32 +64,7 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* Fixed Social Buttons Container */}
-      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50">
-        <div className="hidden flex-col gap-4">
-          {socialLinks.map((social) => (
-            <Button
-              key={social.name}
-              rel="noopener noreferrer"
-              className="social-button group relative w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-emerald-400 hover:border-emerald-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-emerald-400/25"
-              aria-label={social.name}
-            >
-              <span className="text-xs font-bold tracking-wide">{social.text}</span>
-
-              {/* Tooltip */}
-              <span className="absolute left-full ml-4 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
-                {social.name}
-                <span className="absolute right-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-r-gray-900"></span>
-              </span>
-            </Button>
-          ))}
-        </div>
-
-        {/* Vertical line decoration */}
-        <div className="w-px hidden h-20 bg-gradient-to-b from-emerald-400 to-transparent mx-auto mt-6"></div>
-      </div>
-
-      <section className="section flex items-center justify-center">
+      <section data-audio-read className="section  flex items-center justify-center">
         <div className="inner-section flex items-center justify-between px-8 py-6">
           <div className="relative w-full xl:h-[500px] 2xl:h-[641px] flex flex-col gap-3 px-8 py-6">
             <p className="text-stone-500 text-3xl font-medium">Hello! my name is</p>

@@ -9,7 +9,7 @@ export const formValidation = z.object({
     .string()
     .min(1, 'Email is required')
     .email('Please enter a valid email address'),
-  additionalInfo: z
+  message: z
     .string()
     .optional()
 });
