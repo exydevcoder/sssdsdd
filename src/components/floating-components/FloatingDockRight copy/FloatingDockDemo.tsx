@@ -99,10 +99,10 @@ export default function FloatingDockDemo() {
   };
 
   return (
-    <div className="fixed right-5 xl:right-[144px] 2xl:right-[350px] top-1/3 sm:top-1/2 transform -translate-y-1/2 z-50">
+    <div className="fixed right-5 xl:right-[144px] 2xl:right-[350px] top-1/2 transform -translate-y-1/2 z-50">
       <div
         ref={dockRef}
-        className="w-[72px] p-3 sm:p-4 pt-1 sm:pt-3 bg-neutral-900/50 sm:bg-neutral-900/100 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-2 overflow-visible"
+        className="w-[72px] p-4 pt-3 bg-neutral-900 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-2 overflow-visible"
       >
         {navItems.map((item, index) => (
           <div

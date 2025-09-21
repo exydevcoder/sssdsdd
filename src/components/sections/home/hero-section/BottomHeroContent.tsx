@@ -1,6 +1,7 @@
 'use client';
 
-import { BrandDesignIcon, EmailIcon, MotionDesignIcon, ProductDesignIcon, StarIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
+import { AvailableCollabIcon, BrandDesignIcon, EmailIcon, MotionDesignIcon, ProductDesignIcon, StarIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 export default function BottomHeroContent() {
@@ -16,7 +17,7 @@ export default function BottomHeroContent() {
   ];
 
   return (
-    <section className="section border py-[256px]">
+    <section className="section py-[256px]">
       <div className="flex flex-col gap-10">
         <div className="flex flex-col items-center justify-center gap-3">
           <h1 className="justify-center text-white text-4xl font-medium leading-[48px]">Senior UI/UX & Product Designer.</h1>
@@ -74,76 +75,13 @@ export default function BottomHeroContent() {
           </div>
         </div>
 
-        <div className="border p-3 rounded-xl"></div>
+        <div className="flex items-center justify-center">
+          <Badge variant="customBadge" className="">
+            <AvailableCollabIcon />
+            <span>Available for collaboration</span>
+          </Badge>
+        </div>
       </div>
-
-      <style jsx>{`
-        .animated-border-card {
-          position: relative;
-          width: 388px;
-          height: 105px;
-          border-radius: 12px;
-          --border-size: 1px;
-          --angle: 0deg;
-          --opacity: 0.5;
-        }
-
-        .animated-border-card::before {
-          content: '';
-          position: absolute;
-          inset: calc(-1 * var(--border-size));
-          border-radius: inherit;
-          padding: var(--border-size);
-          background: conic-gradient(
-            from var(--angle),
-            #CCF544 0deg 30deg,
-            #6EE7B7 30deg 132deg,
-            #CCF544 200deg 200deg,
-            #FFFFFF11 220deg 360deg
-          );
-          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          mask-composite: xor;
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          opacity: var(--opacity);
-          animation: rotate 20s linear infinite, opacityChange 3s infinite alternate;
-        }
-
-        .card-content {
-          position: relative;
-          z-index: 1;
-          width: 100%;
-          height: 100%;
-          background: rgb(23 23 23); /* bg-neutral-900 equivalent */
-          border-radius: 12px;
-          padding: 1.5rem;
-          backdrop-filter: blur(12px);
-        }
-
-        @property --opacity {
-          syntax: '<number>';
-          initial-value: 0.5;
-          inherits: false;
-        }
-
-        @property --angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-
-        @keyframes opacityChange {
-          to {
-            --opacity: 1;
-          }
-        }
-
-        @keyframes rotate {
-          to {
-            --angle: 360deg;
-          }
-        }
-      `}</style>
     </section>
   );
 }

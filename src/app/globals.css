@@ -140,7 +140,7 @@
 
 
 .section{
-  @apply px-20 w-full
+  @apply md:px-20 w-full
 }
 
 .inner-section{
@@ -158,42 +158,58 @@
     font-style: normal;
 }
 
-.border-animation {
-  width: 400px;
-  height: 300px;
-  border-radius: 10px;
-  padding: 2rem;
-  margin: auto;
 
-  display: grid;
-  place-content: center;
-  text-align: center;
 
-  font-size: 1.5em;
+.animated-border-card {
+  position: relative;
+  width: 388px;
+  height: 105px;
+  border-radius: 12px;
+  --border-size: 1px;
+  --angle: 0deg;
+  --opacity: 0.5;
+}
 
-  --border-size: 0.3rem;
-  border: var(--border-size) solid transparent;
+.animated-border-card::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--border-size));
+  border-radius: inherit;
+  padding: var(--border-size);
+  background: conic-gradient(
+    from var(--angle),
+    #CCF544 0deg 30deg,
+    #6EE7B7 30deg 132deg,
+    #CCF544 200deg 200deg,
+    #FFFFFF11 220deg 360deg
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  opacity: var(--opacity);
+  animation: rotate 20s linear infinite, opacityChange 3s infinite alternate;
+}
 
-  /* Paint an image in the border */
-  border-image: conic-gradient(
-      from var(--angle),
-      #000000 0deg 90deg,
-      #000000 90deg 180deg,
-      #000000 180deg 270deg,
-      #399953 270deg 360deg
-    )
-    1 stretch;
-  background: rgb(255 255 255 / var(--opacity));
+.card-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgb(23 23 23); /* bg-neutral-900 equivalent */
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
 }
 
 @property --opacity {
-  syntax: "<number>";
+  syntax: '<number>';
   initial-value: 0.5;
   inherits: false;
 }
 
 @property --angle {
-  syntax: "<angle>";
+  syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
 }
@@ -208,8 +224,4 @@
   to {
     --angle: 360deg;
   }
-}
-
-.border-animation {
-  animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
 }
