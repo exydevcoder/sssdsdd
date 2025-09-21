@@ -4,6 +4,7 @@ import './globals.css';
 import HeaderSection from '@/components/header/HeaderSection';
 import TellMeYourNeed from '@/components/floating-components/TellMeYourNeed/TellMeYourNeed';
 import PlayerButton from '@/components/floating-components/PlayerButton';
+import FloatingDockDemo from '@/components/floating-components/FloatingDockRight/FloatingDockDemo';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -28,6 +29,7 @@ export default function RootLayout({
         <main className='mt-[85px]'>{children}</main>
         <TellMeYourNeed />
         <PlayerButton />
+        <FloatingDockDemo />
       </body>
     </html>
   );

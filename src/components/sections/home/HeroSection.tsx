@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import olawalePic from '../../../assets/olawale-pic.png';
 import { Button } from '@/components/ui/button';
+import FadeIn from '@/components/animations/fade-in';
 
 export default function HeroSection() {
   const svgRef = useRef(null);
@@ -15,59 +16,42 @@ export default function HeroSection() {
   }, []);
 
   const applyScribbleEffect = () => {
-    gsap.set('.letter-path', { 
+    gsap.set('.letter-path', {
       strokeDasharray: 1000,
       strokeDashoffset: 1000,
       fill: 'transparent',
       stroke: '#6EE7B7',
       strokeWidth: 2
     });
-    
+
     // Create a timeline for each letter
     document.querySelectorAll('.letter-path').forEach((letter, index) => {
       const tl = gsap.timeline({ delay: index * 0.2 });
-      
+
       tl.to(letter, {
         strokeDashoffset: 0,
         duration: 2,
         ease: 'none'
-      })
-      .to(letter, {
-        fill: '#6EE7B7',
-        duration: 0.5,
-        ease: 'power2.out'
-      }, '-=0.3'); // Start filling slightly before stroke completes
+      }).to(
+        letter,
+        {
+          fill: '#6EE7B7',
+          duration: 0.5,
+          ease: 'power2.out'
+        },
+        '-=0.3'
+      ); // Start filling slightly before stroke completes
     });
   };
-
-  const socialLinks = [
-    {
-      name: 'Twitter',
-      text: 'TW'
-    },
-    {
-      name: 'GitHub',
-      text: 'GH',
-      url: 'https://github.com/yourusername'
-    },
-    {
-      name: 'LinkedIn',
-      text: 'LI',
-      url: 'https://linkedin.com/in/yourprofile'
-    },
-    {
-      name: 'Email',
-      text: 'EM',
-      url: 'mailto:your.email@example.com'
-    }
-  ];
 
   return (
     <>
       <section data-audio-read className="section  flex items-center justify-center">
         <div className="inner-section flex items-center justify-between px-8 py-6">
           <div className="relative w-full xl:h-[500px] 2xl:h-[641px] flex flex-col gap-3 px-8 py-6">
-            <p className="text-stone-500 text-3xl font-medium">Hello! my name is</p>
+            <FadeIn direction="up" delay={0.8} distance={60} duration={0.8} className="max-w-[328px] sm:max-w-[1049px]">
+              <p className="text-stone-500 text-3xl font-medium">Hello! my name is</p>
+            </FadeIn>
             <div className="relative flex flex-col items-center justify-center">
               <div className="w-full">
                 <svg ref={svgRef} viewBox="0 0 1122 578" fill="none" xmlns="http://www.w3.org/2000/svg">
