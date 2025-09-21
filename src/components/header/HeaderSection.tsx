@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import headerLogo from '../../assets/header-logo.png';
-import starsIcon from '../../assets/icons/stars-icon.svg';
 import { Button } from '../ui/button';
+import { StarIcon } from '../icon';
 
 export default function HeaderSection() {
   return (
@@ -14,7 +14,7 @@ export default function HeaderSection() {
 
         <div className="">
           <Button variant="customBtn">
-            <Image src={starsIcon} width={16} height={16} alt="header-logo" />
+            <StarIcon />
             <span>View My Work</span>
           </Button>
         </div>
