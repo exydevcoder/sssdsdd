@@ -9,30 +9,13 @@ export default function BottomHeroContent() {
             I design scalable, aesthetic digital experiences across brand, product, and web, driven by strategy and clean execution.
           </p>
         </div>
-        {/* Grid container with 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* Top row items (span 1 column each) */}
-          <div className="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-medium text-gray-800">{services[0]}</h3>
-          </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-medium text-gray-800">{services[1]}</h3>
-          </div>
-          <div className="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-medium text-gray-800">{services[2]}</h3>
-          </div>
-
-          {/* Bottom row items (span full width) */}
-          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
-            <div className="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-              <h3 className="text-lg font-medium text-gray-800">{services[3]}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((service, index) => (
+            <div key={index} className="bg-white rounded-lg border border-gray-200 p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h3 className="text-lg font-medium text-gray-800">{service}</h3>
             </div>
-            <div className="bg-white rounded-xl border border-gray-200 p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
-              <h3 className="text-lg font-medium text-gray-800">{services[4]}</h3>
-            </div>
-          </div>
+          ))}
         </div>
-
         <div className="border p-3"></div>
         <div className="border p-3"></div>
         <div className="border p-3"></div>
