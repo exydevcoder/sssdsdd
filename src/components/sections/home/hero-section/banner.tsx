@@ -3,11 +3,10 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
-import olawalePic from '../../../assets/olawale-pic.png';
-import { Button } from '@/components/ui/button';
+import olawalePic from '../../../../assets/olawale-pic.png';
 import FadeIn from '@/components/animations/fade-in';
 
-export default function HeroSection() {
+export default function HeroBanner() {
   const svgRef = useRef(null);
 
   useEffect(() => {
@@ -46,9 +45,9 @@ export default function HeroSection() {
 
   return (
     <>
-      <section data-audio-read className="section  flex items-center justify-center">
+      <section data-audio-read className="section border flex items-center justify-center pb-18">
         <div className="inner-section flex items-center justify-between px-8 py-6">
-          <div className="relative w-full xl:h-[500px] 2xl:h-[641px] flex flex-col gap-3 px-8 py-6">
+          <div className="relative w-full flex flex-col gap-3 px-8 py-6">
             <FadeIn direction="up" delay={0.8} distance={60} duration={0.8} className="max-w-[328px] sm:max-w-[1049px]">
               <p className="text-stone-500 text-3xl font-medium">Hello! my name is</p>
             </FadeIn>
