@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { DockIcons } from '../FloatingDockRight/DockIcons';
 import { handleMouseEnter, handleMouseLeave } from './dockAnimations';
+import { AnimatedGradientBorder } from '@/components/animations/AnimatedGradientBorder';
 
 interface NavItem {
   icon: 'Home' | 'Work' | 'Linkedin' | 'Twitter' | 'Dribble';
@@ -34,7 +35,7 @@ export default function FloatingDockDemo() {
         gsap.fromTo(
           dockRef.current,
           {
-            x: 100,
+            x: 150,
             opacity: 0,
             scale: 0.8
           },
@@ -99,30 +100,46 @@ export default function FloatingDockDemo() {
   };
 
   return (
-    <div className="fixed right-5 xl:right-[144px] 2xl:right-[350px] top-1/3 sm:top-1/2 transform -translate-y-1/2 z-50">
-      <div
-        ref={dockRef}
-        className="w-[72px] p-3 sm:p-4 pt-1 sm:pt-3 bg-neutral-900/50 sm:bg-neutral-900/100 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-2 overflow-visible"
-      >
-        {navItems.map((item, index) => (
-          <div
-            key={item.id}
-            className="flex flex-col items-center justify-center gap-1.5 relative"
-            onMouseEnter={() => handleMouseEnter(index, itemsRef, labelsRef)}
-            onMouseLeave={() => handleMouseLeave(index, itemsRef, labelsRef)}
-          >
-            <p
-              ref={el => addToLabelRefs(el, index)}
-              className="text-center px-1.5 py-0.5 bg-[#20302A] rounded justify-center items-center gap-2.5 text-emerald-400 text-[10px] font-medium leading-3.5 whitespace-nowrap overflow-hidden"
+    <div
+    ref={dockRef}
+      className="fixed 
+  right-4 
+  sm:right-6 
+  md:right-[80px] 
+  lg:right-[100px] 
+  xl:right-[135px] 
+  [@media(min-width:1900px)]:right-[330px] 
+  top-1/3 md:top-1/2 
+  transform -translate-y-1/2 
+  z-50"
+    >
+      <AnimatedGradientBorder>
+        <div
+          className="w-[72px] p-3 sm:p-4 pt-1 sm:pt-3 bg-neutral-900 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-4 overflow-visible"
+        >
+          {navItems.map((item, index) => (
+            <div
+              key={item.id}
+              className="flex flex-col items-center justify-center gap-1.5 relative group"
+              onMouseEnter={() => handleMouseEnter(index, itemsRef, labelsRef)}
+              onMouseLeave={() => handleMouseLeave(index, itemsRef, labelsRef)}
             >
-              {item.label}
-            </p>
-            <Link href={item.href} ref={el => addToRefs(el, index)} className="w-10 h-10 bg-neutral-800 rounded-xl flex justify-center items-center hover:bg-[#20302A] transition-colors duration-200">
-              <DockIcons name={item.icon} />
-            </Link>
-          </div>
-        ))}
-      </div>
+              <p
+                className="text-center hidden md:hidden md:group-hover:block px-1.5 py-0.5 bg-[#20302A] rounded justify-center items-center gap-2.5 text-emerald-400 text-[10px] font-medium leading-3.5 whitespace-nowrap overflow-hidden"
+              >
+                {item.label}
+              </p>
+              <Link
+                href={item.href}
+                ref={el => addToRefs(el, index)}
+                className="w-10 h-10 bg-neutral-800 rounded-xl flex justify-center items-center hover:bg-[#20302A] transition-colors duration-200"
+              >
+                <DockIcons name={item.icon} />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </AnimatedGradientBorder>
     </div>
   );
 }

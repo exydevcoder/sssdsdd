@@ -2,6 +2,7 @@ import Image from 'next/image';
 import headerLogo from '../../assets/header-logo.png';
 import { Button } from '../ui/button';
 import { StarIcon } from '../icon';
+import { AnimatedGradientBorder } from '../animations/AnimatedGradientBorder';
 
 export default function HeaderSection() {
   return (
@@ -13,10 +14,12 @@ export default function HeaderSection() {
         </div>
 
         <div className="">
-          <Button variant="customBtn">
-            <StarIcon />
-            <span>View My Work</span>
-          </Button>
+          <AnimatedGradientBorder>
+            <Button variant="customBtn">
+              <StarIcon />
+              <span>View My Work</span>
+            </Button>
+          </AnimatedGradientBorder>
         </div>
       </div>
     </header>

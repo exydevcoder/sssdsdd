@@ -135,7 +135,7 @@
 }
 
 .inner-section{
-  @apply w-[100%] max-w-[1408px] px-4 sm:px-8 py-6
+  @apply w-[100%] max-w-[1408px] px-5 sm:px-8 py-6
 }
 
 
@@ -151,20 +151,25 @@
 
 
 
-.animated-border-card {
-  position: relative;
-  width: 388px;
-  height: 105px;
-  border-radius: 12px;
+/* Animated border */
+.animated-border {
+  position: relative; /* Works with any other positioning too */
   --border-size: 1px;
   --angle: 0deg;
   --opacity: 0.5;
+  border-radius: 12px; /* You can override this per element */
+  z-index: 0;
+  isolation: isolate; /* Ensures pseudo-elements don't leak */
 }
 
-.animated-border-card::before {
+.animated-border::before {
   content: '';
   position: absolute;
-  inset: calc(-1 * var(--border-size));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: calc(-1 * var(--border-size));
   border-radius: inherit;
   padding: var(--border-size);
   background: conic-gradient(
@@ -175,24 +180,16 @@
     #FFFFFF11 220deg 360deg
   );
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: xor;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
   -webkit-mask-composite: xor;
   opacity: var(--opacity);
+  pointer-events: none;
+  z-index: -1;
   animation: rotate 20s linear infinite, opacityChange 3s infinite alternate;
 }
 
-.card-content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: rgb(23 23 23); /* bg-neutral-900 equivalent */
-  border-radius: 12px;
-  padding: 1.5rem;
-  backdrop-filter: blur(12px);
-}
-
+/* Support for animating custom properties */
 @property --opacity {
   syntax: '<number>';
   initial-value: 0.5;
@@ -215,4 +212,14 @@
   to {
     --angle: 360deg;
   }
+}
+
+
+
+/* gradient border */
+
+.gradient-border-custom {
+   padding: 3px;
+  border-radius: 12px;
+ border-image: linear-gradient(to right, darkblue, darkorchid) 1;
 }

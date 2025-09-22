@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { AudioPlayWaveIcon, AudioPlayWaveIconAnimated } from '../icon';
+import { AnimatedGradientBorder } from '../animations/AnimatedGradientBorder';
 
 export default function PlayerButton() {
   const [toggle, setToggle] = useState(false);
@@ -11,8 +12,27 @@ export default function PlayerButton() {
   };
 
   return (
-    <div className="p-4 flex items-center justify-between w-[96px] h-[72px] bg-[#121212] border border-white/10 rounded-2xl fixed bottom-4 xl:right-[144px] 2xl:right-[350px]" onClick={handleToggle}>
-      <button className="cta-btn !w-full !h-full">{toggle ? <AudioPlayWaveIconAnimated /> : <AudioPlayWaveIcon />}</button>
+    <div
+      className="fixed 
+      right-4 
+      sm:right-6 
+      md:right-[80px] 
+      lg:right-[100px] 
+      xl:right-[135px] 
+      [@media(min-width:1900px)]:right-[330px] 
+      bottom-4 
+      z-50"
+    >
+      <AnimatedGradientBorder>
+        <div
+          className="p-1.5 flex items-center justify-between w-[76px] h-[52px] bg-[#121212] rounded-2xl relative z-10"
+          onClick={handleToggle}
+        >
+          <button className="cta-btn !w-full !h-full">
+            {toggle ? <AudioPlayWaveIconAnimated /> : <AudioPlayWaveIcon />}
+          </button>
+        </div>
+      </AnimatedGradientBorder>
     </div>
   );
 }
