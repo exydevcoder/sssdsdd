@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 import olawalePic from '../../../../assets/olawale-pic.png';
+import olawalePicMobile from '../../../../assets/olawale-pic-mobile.png';
 import FadeIn from '@/components/animations/fade-in';
 import { OlawaleDesktopName, OlawaleMobileName } from '@/components/icon';
 
@@ -44,9 +45,9 @@ export default function HeroBanner() {
 
   return (
     <>
-      <section data-audio-read className="section flex items-center justify-center pb-18">
-        <div className="inner-section flex items-center justify-between sm:px-8 py-6 w-full">
-          <div className="relative w-full flex flex-col gap-3 px-8 py-6">
+      <section data-audio-read className="section flex items-center justify-center pb-14 sm:pb-18">
+        <div className="inner-section flex items-center justify-between w-full">
+          <div className="relative w-full flex flex-col gap-7 px-8 py-6">
             <FadeIn direction="up" delay={0.8} distance={60} duration={0.8} className="max-w-[328px] sm:max-w-[1049px]">
               <p className="text-stone-500 text-2xl sm:text-3xl font-medium">Hello! my name is</p>
             </FadeIn>
@@ -56,16 +57,26 @@ export default function HeroBanner() {
               <OlawaleMobileName />
               
               {/* Image Container - Adjusted for stretched SVG */}
-              <div className="absolute -bottom-0 sm:-bottom-8 md:-bottom-12 lg:-bottom-16 xl:-bottom-18 2xl:-bottom-3 flex justify-center w-full">
-                <div className="relative w-[280px] h-[290px] sm:w-[350px] sm:h-[365px] md:w-[400px] md:h-[415px] lg:w-[450px] lg:h-[470px] xl:w-[480px] xl:h-[500px]">
+              <div className="absolute -bottom-5 sm:-bottom-8 md:-bottom-12 lg:-bottom-16 xl:-bottom-18 2xl:-bottom-3 flex justify-center w-full">
+                <div className="relative w-[500px] h-[350px] sm:w-[350px] sm:h-[365px] md:w-[400px] md:h-[415px] lg:w-[450px] lg:h-[470px] xl:w-[480px] xl:h-[500px]">
                   <Image 
                     src={olawalePic} 
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-top hidden sm:block"
                     sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, (max-width: 1024px) 400px, (max-width: 1280px) 450px, 480px"
                     alt="Olawale profile picture"
                     priority
                   />
+                  
+                  <Image 
+                    src={olawalePicMobile} 
+                    fill
+                    className="object-cover object-top block sm:hidden"
+                    sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, (max-width: 1024px) 400px, (max-width: 1280px) 450px, 480px"
+                    alt="Olawale profile picture"
+                    priority
+                  />
+
                 </div>
               </div>
             </div>

@@ -119,15 +119,6 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-
-@font-face {
-  font-family: 'RightGrotesk';
-  src: url('/fonts/right-grotesk/RightGrotesk-TightMedium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -144,7 +135,7 @@
 }
 
 .inner-section{
-  @apply w-[100%] max-w-[1408px]
+  @apply w-[100%] max-w-[1408px] px-4 sm:px-8 py-6
 }
 
 

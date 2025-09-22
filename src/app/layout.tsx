@@ -1,14 +1,21 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import HeaderSection from '@/components/header/HeaderSection';
 import TellMeYourNeed from '@/components/floating-components/TellMeYourNeed/TellMeYourNeed';
 import PlayerButton from '@/components/floating-components/PlayerButton';
 import FloatingDockDemo from '@/components/floating-components/FloatingDockRight/FloatingDockDemo';
 
-const inter = Inter({
+const inter = localFont({
+  src: './fonts/Inter/Inter-VariableFont_opsz,wght.ttf',
   variable: '--font-inter',
-  subsets: ['latin'],
+  display: 'swap'
+});
+
+const rightGrotesk = localFont({
+  src: './fonts/right-grotesk/RightGrotesk-TightMedium.woff2',
+  variable: '--font-inter',
   display: 'swap'
 });
 
@@ -24,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${rightGrotesk.variable} antialiased`}>
         <HeaderSection />
         <main className='mt-[85px]'>{children}</main>
         <TellMeYourNeed />
