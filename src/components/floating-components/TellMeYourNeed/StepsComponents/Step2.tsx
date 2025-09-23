@@ -17,7 +17,7 @@ interface Step2Props {
 
 const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ selectedOptions, onSelection, onNext, onPrev, onClose, isAnimating }, ref) => {
   return (
-    <div ref={ref} className="p-6 flex flex-col items-center justify-between max-w-[491px] min-h-[100px] bg-[#121212] border border-emerald-300 rounded-2xl">
+    <div ref={ref} className="p-6 flex flex-col items-center justify-between max-w-[491px] bg-[#121212] border border-emerald-300 rounded-2xl">
       <div className="flex flex-col gap-6 w-full">
         <p className="text-white text-xl font-medium leading-7">I need...</p>
         <div className="flex flex-col gap-6 w-full">
@@ -46,7 +46,7 @@ const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ selectedOptions, onSelec
           <button className="cta-btn" onClick={onPrev} disabled={isAnimating}>
             <LeftArrowIcon />
           </button>
-          <button className="cta-btn !cursor-default" disabled>
+          <button className="cta-btn hover:!bg-[#262626] !cursor-default" disabled>
             <ProgressFillIcon icon={<ProgressStepTwoIcon />} progress={0.66} duration={1.5}/>
           </button>
 
@@ -66,7 +66,7 @@ const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ selectedOptions, onSelec
               {selectedOptions.length > 0 ? (
                 <>
                   <span className="block group-hover:hidden">Continue</span>
-                  <span className="hidden group-hover:block">Yeah! Continue</span>
+                  <span className="hidden group-hover:block group-hover:text-emerald-300">Yeah! Continue</span>
                 </>
               ) : (
                 'Continue'

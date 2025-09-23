@@ -17,7 +17,7 @@ interface Step3Props {
 
 const Step3 = forwardRef<HTMLDivElement, Step3Props>(({ selectedOptions, onSelection, onNext, onPrev, onClose, isAnimating }, ref) => {
   return (
-    <div ref={ref} className="p-6 flex flex-col items-center justify-between min-w-[491px] min-h-[100px] bg-[#121212] border border-emerald-300 rounded-2xl">
+    <div ref={ref} className="p-6 flex flex-col items-center justify-between w-full bg-[#121212] border border-emerald-300 rounded-2xl">
       <div className="flex flex-col gap-6 w-full">
         <p className="text-white text-xl font-medium leading-7">But...</p>
         <div className="flex flex-col gap-6 w-full">
@@ -45,12 +45,12 @@ const Step3 = forwardRef<HTMLDivElement, Step3Props>(({ selectedOptions, onSelec
           <button className="cta-btn" onClick={onPrev} disabled={isAnimating}>
             <LeftArrowIcon />
           </button>
-          <button className="cta-btn !cursor-default">
+          <button className="cta-btn hover:!bg-[#262626] !cursor-default">
             <ProgressFillIcon icon={<ProgressStepThreeIcon />} progress={0.66} duration={1.5} />
           </button>
 
-          <div className={`ml-auto flex items-center gap-4 ${selectedOptions.length > 0 ? 'group' : ''}`}>
-            <span className={`text-white text-base font-normal leading-tight transition-opacity duration-200 ${selectedOptions.length > 0 ? 'group-hover:inline hidden' : 'hidden'}`}>
+          <div className={`ml-auto flex items-center gap-1 xs:gap-4 ${selectedOptions.length > 0 ? 'group' : ''}`}>
+            <span className={`text-white text-sm xs:text-base font-normal leading-tight transition-opacity duration-200 ${selectedOptions.length > 0 ? 'group-hover:inline hidden' : 'hidden'}`}>
               {selectedOptions.length === 1 ? 'Is that all?' : 'Anything else?'}
             </span>
 
@@ -65,7 +65,7 @@ const Step3 = forwardRef<HTMLDivElement, Step3Props>(({ selectedOptions, onSelec
               {selectedOptions.length > 0 ? (
                 <>
                   <span className="block group-hover:hidden">Continue</span>
-                  <span className="hidden group-hover:block">Yeah! Continue</span>
+                  <span className="hidden group-hover:block group-hover:text-emerald-300">Yeah! Continue</span>
                 </>
               ) : (
                 'Continue'

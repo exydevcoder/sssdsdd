@@ -101,7 +101,7 @@ export default function FloatingDockDemo() {
 
   return (
     <div
-    ref={dockRef}
+      ref={dockRef}
       className="fixed 
   right-5 
   sm:right-6 
@@ -109,14 +109,15 @@ export default function FloatingDockDemo() {
   lg:right-[100px] 
   xl:right-[135px] 
   [@media(min-width:1900px)]:right-[330px] 
-  top-1/3 md:top-1/2 
-  transform -translate-y-1/2 
-  z-50"
+  top-[45%]
+  x320:top-[45%]
+  xs:top-1/3 md:top-1/2 
+  transform -translate-y-1/2
+  z-40 
+  sm:z-50"
     >
       <AnimatedGradientBorder>
-        <div
-          className="w-[72px] p-3 sm:p-4 pt-3 bg-neutral-900 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-4 overflow-visible"
-        >
+        <div className="w-[72px] p-3 sm:p-4 pt-3 bg-neutral-900 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-4 overflow-visible">
           {navItems.map((item, index) => (
             <div
               key={item.id}
@@ -124,9 +125,7 @@ export default function FloatingDockDemo() {
               onMouseEnter={() => handleMouseEnter(index, itemsRef, labelsRef)}
               onMouseLeave={() => handleMouseLeave(index, itemsRef, labelsRef)}
             >
-              <p
-                className="text-center hidden md:hidden md:group-hover:block px-1.5 py-0.5 bg-[#20302A] rounded justify-center items-center gap-2.5 text-emerald-400 text-[10px] font-medium leading-3.5 whitespace-nowrap overflow-hidden"
-              >
+              <p className="text-center hidden md:hidden md:group-hover:block px-1.5 py-0.5 bg-[#20302A] rounded justify-center items-center gap-2.5 text-emerald-400 text-[10px] font-medium leading-3.5 whitespace-nowrap overflow-hidden">
                 {item.label}
               </p>
               <Link

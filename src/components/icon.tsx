@@ -399,12 +399,12 @@ export const OlawaleMobileName = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
     ref={svgRef}
-    width={338}
-    height={407}
+    // width={338}
+    // height={407}
     viewBox="0 0 338 407"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="block sm:hidden"
+    className="block sm:hidden w-[290px] x360:w-[338px] h-[407px]"
     {...props}
   >
     {/* O */}

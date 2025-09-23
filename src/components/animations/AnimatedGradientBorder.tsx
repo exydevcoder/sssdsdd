@@ -15,7 +15,7 @@ interface AnimatedGradientBorderProps extends Omit<MotionProps, 'children'> {
 
 export function AnimatedGradientBorder({
   children,
-  className = 'p-[1px]',
+  className = 'p-[2px]',
   borderWidth = 2,
   duration = 10,
   backgroundSize = '300% 300%',

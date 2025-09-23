@@ -47,7 +47,7 @@ export default function HeroBanner() {
     <>
       <section data-audio-read className="section flex items-center justify-center pb-14 sm:pb-18">
         <div className="inner-section flex items-center justify-between w-full">
-          <div className="relative w-full flex flex-col gap-7 px-8 py-6">
+          <div className="relative w-full flex flex-col gap-7 px-2 sm:px-8 py-6">
             <FadeIn direction="up" delay={0.8} distance={60} duration={0.8} className="max-w-[328px] sm:max-w-[1049px]">
               <p className="text-stone-500 text-2xl sm:text-3xl font-medium">Hello! my name is</p>
             </FadeIn>
