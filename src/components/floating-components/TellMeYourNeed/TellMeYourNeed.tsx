@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { gsap } from 'gsap';
@@ -41,6 +41,63 @@ export default function TellMeYourNeed() {
       message: ''
     }
   });
+
+  const resetToDefault = useCallback(() => {
+    if (!isAnimating) {
+      const currentStepEl = stepRefs.current[currentStep];
+
+      if (currentStepEl && shouldAnimateStep(currentStep)) {
+        gsap.to(currentStepEl, {
+          scale: 0.8,
+          opacity: 0,
+          y: -30,
+          duration: 0.3,
+          ease: 'back.in(1.7)',
+          onComplete: () => {
+            setCurrentStep(0);
+            setSelectedOptionsStep2([]);
+            setSelectedOptionsStep3([]);
+            reset();
+
+            const step0El = stepRefs.current[0];
+            if (step0El) {
+              gsap.fromTo(step0El, { scale: 0.8, opacity: 0, y: 30 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.7)' });
+            }
+          }
+        });
+      } else {
+        // Immediate reset for non-animated steps
+        setCurrentStep(0);
+        setSelectedOptionsStep2([]);
+        setSelectedOptionsStep3([]);
+        reset();
+      }
+    }
+  }, [currentStep, isAnimating, reset]); // Add dependencies for useCallback
+
+  // Handle click outside to go back to Step 0
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        currentStep > 0 && // Only trigger when not on Step 0
+        containerRef.current && 
+        !containerRef.current.contains(event.target as Node) && 
+        !isAnimating
+      ) {
+        // Go back to Step 0 with animation
+        resetToDefault();
+      }
+    };
+
+    // Add the event listener for all steps except Step 0
+    if (currentStep > 0) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [currentStep, isAnimating, resetToDefault]);
 
   // Check if a step should have animation
   const shouldAnimateStep = (step: number): boolean => {
@@ -120,39 +177,6 @@ export default function TellMeYourNeed() {
     }
   };
 
-  const resetToDefault = () => {
-    if (!isAnimating) {
-      const currentStepEl = stepRefs.current[currentStep];
-
-      if (currentStepEl && shouldAnimateStep(currentStep)) {
-        gsap.to(currentStepEl, {
-          scale: 0.8,
-          opacity: 0,
-          y: -30,
-          duration: 0.3,
-          ease: 'back.in(1.7)',
-          onComplete: () => {
-            setCurrentStep(0);
-            setSelectedOptionsStep2([]);
-            setSelectedOptionsStep3([]);
-            reset();
-
-            const step0El = stepRefs.current[0];
-            if (step0El) {
-              gsap.fromTo(step0El, { scale: 0.8, opacity: 0, y: 30 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.7)' });
-            }
-          }
-        });
-      } else {
-        // Immediate reset for non-animated steps
-        setCurrentStep(0);
-        setSelectedOptionsStep2([]);
-        setSelectedOptionsStep3([]);
-        reset();
-      }
-    }
-  };
-
   const getLabelsFromIds = (ids: string[], list: Array<{ id: string; label: string }>) => {
     return ids
       .map(id => {
@@ -212,7 +236,7 @@ export default function TellMeYourNeed() {
   };
 
   return (
-    <FadeIn direction="up" delay={0.2} distance={40} duration={0.8} className="fixed z-50 bottom-4 left-1/2 transform -translate-x-1/2">
+    <FadeIn direction="up" delay={0.2} distance={40} duration={0.8} className="w-full fixed z-50 bottom-4 left-1/2 transform -translate-x-[67%] sm:-translate-x-[50%]">
       <div ref={containerRef}>
         {/* Step 0 - Has animation */}
         {currentStep === 0 && <Step0 ref={setStepRef(0)} onNext={nextStep} isAnimating={isAnimating} />}

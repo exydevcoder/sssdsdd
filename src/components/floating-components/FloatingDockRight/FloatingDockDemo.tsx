@@ -35,7 +35,7 @@ export default function FloatingDockDemo() {
         gsap.fromTo(
           dockRef.current,
           {
-            x: 150,
+            x: 100,
             opacity: 0,
             scale: 0.8
           },
@@ -103,7 +103,7 @@ export default function FloatingDockDemo() {
     <div
     ref={dockRef}
       className="fixed 
-  right-4 
+  right-5 
   sm:right-6 
   md:right-[80px] 
   lg:right-[100px] 
@@ -115,7 +115,7 @@ export default function FloatingDockDemo() {
     >
       <AnimatedGradientBorder>
         <div
-          className="w-[72px] p-3 sm:p-4 pt-1 sm:pt-3 bg-neutral-900 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-4 overflow-visible"
+          className="w-[72px] p-3 sm:p-4 pt-3 bg-neutral-900 rounded-2xl outline outline-offset-[-1px] outline-white/10 backdrop-blur-md flex flex-col justify-end items-center gap-4 overflow-visible"
         >
           {navItems.map((item, index) => (
             <div

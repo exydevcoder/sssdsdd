@@ -11,7 +11,7 @@ interface StaticGradientBorderProps {
   gradientAngle?: number;
 }
 
-export function StaticGradientBorder({ children, className = 'border border-[#0A0A0A]', borderWidth = 2, borderRadius = 'rounded-2xl', ...props }: StaticGradientBorderProps) {
+export function StaticGradientBorder({ children, className = 'p-[1px]', borderWidth = 2, borderRadius = 'rounded-2xl', ...props }: StaticGradientBorderProps) {
   // Create gradient with gaps between colors
   const createGradientWithGaps = (angle: number) => {
     return `conic-gradient(from ${angle}deg, 

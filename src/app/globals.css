@@ -129,6 +129,12 @@
   }
 }
 
+@layer utilities {
+  input:-webkit-autofill {
+    -webkit-text-fill-color: #6EE7B7 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
 
 .section{
   @apply md:px-20 w-full

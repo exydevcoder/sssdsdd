@@ -15,7 +15,7 @@ interface AnimatedGradientBorderProps extends Omit<MotionProps, 'children'> {
 
 export function AnimatedGradientBorder({
   children,
-  className = '',
+  className = 'p-[1px]',
   borderWidth = 2,
   duration = 10,
   backgroundSize = '300% 300%',
@@ -38,7 +38,7 @@ export function AnimatedGradientBorder({
   
   return (
     <motion.div
-      className={`p-[${borderWidth}px] ${borderRadius} relative overflow-hidden ${className}`}
+      className={`p-[${borderWidth}px] ${borderRadius} relative ${className}`}
       style={{
         background: createGradientWithGaps(0),
         backgroundSize: backgroundSize,

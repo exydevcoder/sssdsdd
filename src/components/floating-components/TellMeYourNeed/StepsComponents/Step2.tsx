@@ -2,7 +2,9 @@ import { Button } from '@/components/ui/button';
 import { forwardRef } from 'react';
 import CloseButton from '../CloseButton';
 import { stepThreeList } from '../stepLists';
-import { CheckedIcon, LeftArrowIcon, ProgressStepTwoIcon } from '@/components/icon';
+import { CheckedIcon, LeftArrowIcon } from '@/components/icon';
+import { ProgressStepTwoIcon } from '../icons';
+import { ProgressFillIcon } from '../ProgressFillIcon';
 
 interface Step2Props {
   selectedOptions: string[];
@@ -45,7 +47,7 @@ const Step2 = forwardRef<HTMLDivElement, Step2Props>(({ selectedOptions, onSelec
             <LeftArrowIcon />
           </button>
           <button className="cta-btn !cursor-default" disabled>
-            <ProgressStepTwoIcon />
+            <ProgressFillIcon icon={<ProgressStepTwoIcon />} progress={0.66} duration={1.5}/>
           </button>
 
           <div className={`ml-auto flex items-center gap-4 ${selectedOptions.length > 0 ? 'group' : ''}`}>

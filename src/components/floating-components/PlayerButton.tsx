@@ -14,14 +14,14 @@ export default function PlayerButton() {
   return (
     <div
       className="fixed 
-      right-4 
+      right-12 
       sm:right-6 
       md:right-[80px] 
       lg:right-[100px] 
       xl:right-[135px] 
       [@media(min-width:1900px)]:right-[330px] 
       bottom-4 
-      z-50"
+      z-40"
     >
       <AnimatedGradientBorder>
         <div
