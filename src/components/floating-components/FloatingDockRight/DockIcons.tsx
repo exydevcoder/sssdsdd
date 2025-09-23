@@ -51,6 +51,6 @@ const icons = {
   )
 } as const;
 
-export const DockIcons = ({ name, className = 'w-5 h-5' }: DockIconsProps) => {
+export const DockIcons = ({ name}: DockIconsProps) => {
   return icons[name] || null;
 };

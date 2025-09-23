@@ -1,9 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { motion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
 import { SVGProps } from 'react';
 
 
