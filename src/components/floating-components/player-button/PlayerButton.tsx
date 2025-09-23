@@ -18,7 +18,7 @@ export default function PlayerButton({ currentStep }: { currentStep: number }) {
   return (
     <FadeIn
       direction="left"
-      delay={0.2}
+      delay={2.8}
       distance={40}
       duration={0.8}
       className={`fixed

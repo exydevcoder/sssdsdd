@@ -49,7 +49,7 @@ export default function TellMeYourNeed({
 }: TellMeYourNeedProps) {
 
   return (
-    <FadeIn direction="up" delay={0.2} distance={40} duration={0.8} className="fixed flex items-center justify-center z-50 bottom-5 xs:bottom-4 w-full">
+    <FadeIn direction="up" delay={2.4} distance={40} duration={0.8} className="fixed flex items-center justify-center z-50 bottom-5 xs:bottom-4 w-full">
       <div ref={containerRef} className='w-full sm:w-[491px] px-5 flex items-center justify-center'>
         {/* Step 0 - Has animation */}
         {currentStep === 0 && <Step0 ref={setStepRef(0)} onNext={nextStep} isAnimating={isAnimating} />}

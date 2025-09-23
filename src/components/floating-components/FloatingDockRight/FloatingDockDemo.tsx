@@ -45,7 +45,7 @@ export default function FloatingDockDemo() {
             scale: 1,
             duration: 1,
             ease: 'back.out(1.7)',
-            delay: 0.5
+            delay: 2.0
           }
         );
       }
@@ -93,11 +93,11 @@ export default function FloatingDockDemo() {
     }
   };
 
-  const addToLabelRefs = (el: HTMLParagraphElement | null, index: number) => {
-    if (el && !labelsRef.current.includes(el)) {
-      labelsRef.current[index] = el;
-    }
-  };
+  // const addToLabelRefs = (el: HTMLParagraphElement | null, index: number) => {
+  //   if (el && !labelsRef.current.includes(el)) {
+  //     labelsRef.current[index] = el;
+  //   }
+  // };
 
   return (
     <div
