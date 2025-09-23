@@ -26,8 +26,9 @@ export default function PlayerButton({ currentStep }: { currentStep: number }) {
       sm:right-6 
       md:right-[80px] 
       lg:right-[100px] 
-      xl:right-[135px] 
-      [@media(min-width:1900px)]:right-[330px]
+      xl:right-[120px] 
+      [@media(min-width:1600px)]:right-[133px]
+      [@media(min-width:1900px)]:right-[300px]
       bottom-21 
       xs:bottom-4 
       z-50 ${currentStep === 0 ? 'flex' : 'hidden'}`}

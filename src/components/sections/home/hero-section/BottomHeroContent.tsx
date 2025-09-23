@@ -2,13 +2,15 @@
 
 import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
 import { StaticGradientBorder } from '@/components/animations/StaticGradientBorder';
-import { AvailableCollabIcon, BrandDesignIcon, EmailIcon, MotionDesignIcon, ProductDesignIcon, StarIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
+import LetTalkBtn from '@/components/buttons/LetTalkBtn';
+import ViewMyWorkBtn from '@/components/buttons/ViewMyWorkBtn';
+import { AvailableCollabIcon, BrandDesignIcon, EmailIcon, MotionDesignIcon, ProductDesignIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 export default function BottomHeroContent() {
   return (
-    <section className="section py-[128px] md:py-[256px]">
+    <section className="section flex items-center justify-center py-[128px] md:py-[256px]">
       <div className="inner-section flex flex-col gap-10">
         <div className="flex flex-col items-center justify-center gap-3">
           <h1 className="max-w-[274px] sm:max-w-[570px] text-center text-white text-[32px] sm:text-4xl font-medium sm:leading-[48px]">Senior UI/UX & Product Designer.</h1>
@@ -40,14 +42,8 @@ export default function BottomHeroContent() {
         </div>
 
         <div className="flex items-center justify-center gap-3">
-          <Button variant="customBtn">
-            <StarIcon />
-            <span>View My Work</span>
-          </Button>
-          <Button variant="customBtn" className="w-[119px] bg-neutral-900 border border-white/10">
-            <EmailIcon />
-            <span className="text-white">Let's Talk</span>
-          </Button>
+          <ViewMyWorkBtn />
+          <LetTalkBtn />
         </div>
 
         <div className="flex justify-center">
