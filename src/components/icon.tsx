@@ -324,7 +324,11 @@ export const OlawaleDesktopName = (props: SVGProps<SVGSVGElement>) => {
       viewBox="0 0 1122 578"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-full hidden sm:block h-auto transform sm:scale-y-100 scale-y-160 sm:scale-x-100 scale-x-90"
+      // className="w-full [@media(max-width:768px)]:mt-22
+      // [@media(min-width:767px)]:scale-y-100 [@media(min-width:767px)]:scale-x-90
+      // [@media(max-width:768px)]:scale-y-180 [@media(max-width:768px)]:scale-x-110
+      // "
+      className="w-full h-auto mt-15 md:mt-0 transform sm:scale-y-100 scale-y-160 sm:scale-x-100 scale-x-90"
       {...props}
     >
       {/* O */}
@@ -404,7 +408,7 @@ export const OlawaleMobileName = (props: SVGProps<SVGSVGElement>) => {
     viewBox="0 0 338 407"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="block sm:hidden w-[290px] x360:w-[338px] h-[407px]"
+    className="hidden w-[290px] x360:w-[338px] h-[407px]"
     {...props}
   >
     {/* O */}

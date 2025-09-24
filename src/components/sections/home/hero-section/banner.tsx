@@ -8,6 +8,7 @@ import olawalePicMobile from '../../../../assets/olawale-pic-mobile.png';
 import FadeIn from '@/components/animations/fade-in';
 import { OlawaleDesktopName, OlawaleMobileName } from '@/components/icon';
 import LiquidGlitchImage from '@/components/LiquidGlitchImage';
+import HeroBannerCircleShape from '@/components/CircleShape';
 
 export default function HeroBanner() {
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function HeroBanner() {
   return (
     <>
       <section data-audio-read className="section flex items-center justify-center pb-14 sm:pb-18">
+        <HeroBannerCircleShape />
         <div className="inner-section flex items-center justify-between w-full">
           <div className="relative w-full flex flex-col gap-7 px-2 sm:px-8 py-6">
             <FadeIn direction="up" delay={1.3} distance={30} duration={0.8} className="w-full text-center">
@@ -58,17 +60,8 @@ export default function HeroBanner() {
               <OlawaleMobileName />
 
               {/* Image Container - Adjusted for stretched SVG */}
-              <div className="absolute -bottom-5 sm:-bottom-8 md:-bottom-12 lg:-bottom-16 xl:-bottom-18 2xl:-bottom-3 flex justify-center w-full">
-                <div className="relative w-[500px] h-[350px] sm:w-[350px] sm:h-[365px] md:w-[400px] md:h-[415px] lg:w-[450px] lg:h-[470px] xl:w-[480px] xl:h-[500px]">
-                  {/* <Image 
-                    src={olawalePic} 
-                    fill
-                    className="object-cover object-top hidden sm:block"
-                    sizes="(max-width: 640px) 280px, (max-width: 768px) 350px, (max-width: 1024px) 400px, (max-width: 1280px) 450px, 480px"
-                    alt="Olawale profile picture"
-                    priority
-                  /> */}
-
+              <div className="absolute -bottom-43 xs:-bottom-37 sm:-bottom-8 md:-bottom-12 lg:-bottom-16 xl:-bottom-18 2xl:-bottom-3 flex justify-center w-full">
+                <div className="relative flex items-center justify-center w-[500px] h-[350px] sm:w-[350px] sm:h-[365px] md:w-[400px] md:h-[415px] lg:w-[450px] lg:h-[470px] xl:w-[480px] xl:h-[500px]">
                   <LiquidGlitchImage
                     src={olawalePic.src}
                     alt="Olawale profile picture"

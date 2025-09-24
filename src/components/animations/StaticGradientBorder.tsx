@@ -16,11 +16,11 @@ export function StaticGradientBorder({ children, className = 'p-[1px]', borderWi
   const createGradientWithGaps = (angle: number) => {
     return `conic-gradient(from ${angle}deg, 
       #6EE7B7 30deg 68deg, 
-      #CCF544 0deg 0deg, 
-      transparent 90deg 180deg,
+      #CCF544 60deg 0deg, 
+      transparent 90deg 258deg,
       transparent 180deg 256deg, 
-      #CCF544 0deg 0deg,
-      #6EE7B7 330deg 360deg
+      #6EE7B7 330deg 360deg,
+      #CCF544 0deg 0deg
     )`;
   };
 

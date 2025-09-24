@@ -102,7 +102,7 @@ export default function FloatingDockDemo() {
   return (
     <div
       ref={dockRef}
-      className="fixed 
+      className="hidden lg:block fixed 
   right-5 
   sm:right-6 
   md:right-[80px] 

@@ -48,12 +48,12 @@ export default function BottomHeroContent() {
 
         <div className="flex justify-center">
           <StaticGradientBorder>
-            <div className="min-w-96 min-h-28 p-6 flex bg-gradient-to-b from-neutral-900 to-neutral-950 rounded-xl backdrop-blur-md">
-              <div className="max-w-full pr-7">
+            <div className="w-full xs:min-w-96 min-h-28 p-5 xs:p-6 flex bg-gradient-to-b from-neutral-900 to-neutral-950 rounded-xl backdrop-blur-md">
+              <div className="max-w-full pr-5 xs:pr-7">
                 <AnimatedCounter from={0} to={10} suffix="+" duration={2.5} />
                 <span className="text-zinc-500 text-nowrap text-xs font-normal">Years Experience</span>
               </div>
-              <div className="max-w-full pr-7">
+              <div className="max-w-full pr-5 xs:pr-7">
                 <AnimatedCounter from={0} to={50} suffix="+" duration={2.8} />
                 <span className="text-zinc-500 text-nowrap text-xs font-normal">Projects Completed</span>
               </div>

@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import HeaderSection from '@/components/header/HeaderSection';
 import FloatingComponent from '@/components/floating-components/FloatingComponent';
+import CustomCursor from '@/components/CustomCursor';
 
 const inter = localFont({
   src: './fonts/Inter/Inter-VariableFont_opsz,wght.ttf',
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${rightGrotesk.variable} antialiased`}>
         <HeaderSection />
+        <CustomCursor />
         <main className='mt-[85px]'>{children}</main>
         <FloatingComponent />
       </body>

@@ -39,7 +39,7 @@ export function AnimatedCounter({ from = 0, to, duration = 2, suffix = '', class
   return (
     <motion.h3
       ref={ref}
-      className={`text-emerald-300 text-3xl font-medium ${className}`}
+      className={`text-emerald-300 text-2xl xs:text-3xl font-medium ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}

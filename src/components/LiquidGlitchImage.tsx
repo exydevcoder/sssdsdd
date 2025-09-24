@@ -13,15 +13,7 @@ interface LiquidGlitchImageProps {
   priority?: boolean;
 }
 
-export default function LiquidGlitchImage({
-  src,
-  alt,
-  fill = false,
-  width = 500,
-  height = 500,
-  className = 'w-[500px] h-[500px]',
-  priority = false
-}: LiquidGlitchImageProps) {
+export default function LiquidGlitchImage({ src, alt, fill = false, width = 500, height = 500, className = '', priority = false }: LiquidGlitchImageProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sceneRef = useRef<{
     scene: THREE.Scene;
@@ -33,7 +25,7 @@ export default function LiquidGlitchImage({
     clock: THREE.Clock;
     isActive: boolean;
   } | null>(null);
-  
+
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -56,11 +48,11 @@ export default function LiquidGlitchImage({
     texture.magFilter = THREE.LinearFilter;
 
     // EFFECT PARAMETERS - ADJUST THESE FOR STRONGER/WEAKER EFFECTS
-    const EFFECT_RADIUS = 0.25;        // Larger radius = bigger affected area
-    const RIPPLE_STRENGTH = 0.2;      // Stronger ripple distortion
-    const WAVE_STRENGTH = 0.04;        // Stronger wave distortion
-    const NOISE_STRENGTH = 0.15;       // Stronger noise
-    const COLOR_INTENSITY = 0.1;       // Stronger color effects
+    const EFFECT_RADIUS = 0.25; // Larger radius = bigger affected area
+    const RIPPLE_STRENGTH = 0.2; // Stronger ripple distortion
+    const WAVE_STRENGTH = 0.04; // Stronger wave distortion
+    const NOISE_STRENGTH = 0.15; // Stronger noise
+    const COLOR_INTENSITY = 0.0; // Stronger color effects
 
     // Custom shader material for liquid distortion
     const material = new THREE.ShaderMaterial({
@@ -215,31 +207,27 @@ export default function LiquidGlitchImage({
     // Animation loop
     const animate = () => {
       if (!sceneRef.current) return;
-      
+
       const { material, clock, isActive } = sceneRef.current;
-      
+
       // Update uniforms
       material.uniforms.uTime.value = clock.getElapsedTime();
-      material.uniforms.uActive.value = THREE.MathUtils.lerp(
-        material.uniforms.uActive.value,
-        isActive ? 1.0 : 0.0,
-        0.1
-      );
-      
+      material.uniforms.uActive.value = THREE.MathUtils.lerp(material.uniforms.uActive.value, isActive ? 1.0 : 0.0, 0.1);
+
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
-    
+
     animate();
 
     // Mouse move handler
     const handleMouseMove = (event: MouseEvent) => {
       if (!sceneRef.current || !canvasRef.current) return;
-      
+
       const rect = canvasRef.current.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width);
-      const y = 1.0 - ((event.clientY - rect.top) / rect.height);
-      
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = 1.0 - (event.clientY - rect.top) / rect.height;
+
       sceneRef.current.mouse.set(x, y);
       sceneRef.current.isActive = true;
       setIsActive(true);
@@ -248,7 +236,7 @@ export default function LiquidGlitchImage({
     // Mouse leave handler
     const handleMouseLeave = () => {
       if (!sceneRef.current) return;
-      
+
       sceneRef.current.mouse.set(-10, -10);
       sceneRef.current.isActive = false;
       setIsActive(false);
@@ -270,14 +258,8 @@ export default function LiquidGlitchImage({
   }, [src, width, height]);
 
   return (
-    <div 
-      className={`relative ${fill ? 'w-full h-full' : ''} ${className}`}
-      style={!fill ? { width, height } : {}}
-    >
-      <canvas
-        ref={canvasRef}
-        className="w-full h-full object-cover cursor-pointer"
-      />
+    <div className={`relative  ${className}`}>
+      <canvas ref={canvasRef} className="w-full h-full object-cover cursor-pointer" />
     </div>
   );
 }
