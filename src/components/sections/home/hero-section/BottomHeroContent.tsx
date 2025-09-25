@@ -4,9 +4,9 @@ import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
 import { StaticGradientBorder } from '@/components/animations/StaticGradientBorder';
 import LetTalkBtn from '@/components/buttons/LetTalkBtn';
 import ViewMyWorkBtn from '@/components/buttons/ViewMyWorkBtn';
-import { AvailableCollabIcon, BrandDesignIcon, EmailIcon, MotionDesignIcon, ProductDesignIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
+import GlowingBadge from '@/components/GlowingBadge';
+import { AvailableCollabIcon, BrandDesignIcon, MotionDesignIcon, ProductDesignIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 
 export default function BottomHeroContent() {
   return (
@@ -18,27 +18,28 @@ export default function BottomHeroContent() {
             I design scalable, aesthetic digital experiences across brand, product, and web, driven by strategy and clean execution.
           </p>
         </div>
+
         <div className="max-w-[498px] mx-auto flex flex-wrap items-center justify-center gap-2">
-          <Badge className="w-[124px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+          <GlowingBadge className="w-[124px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
             <UiUxDesignIcon />
             <span>UI/UX Design</span>
-          </Badge>
-          <Badge className="w-[135px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+          </GlowingBadge>
+          <GlowingBadge className="w-[135px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
             <ProductDesignIcon />
             <span>Product Design</span>
-          </Badge>
-          <Badge className="w-[130px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+          </GlowingBadge>
+          <GlowingBadge className="w-[130px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
             <MotionDesignIcon />
             <span>Motion Design</span>
-          </Badge>
-          <Badge className="w-[187px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+          </GlowingBadge>
+          <GlowingBadge className="w-[187px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
             <BrandDesignIcon />
             <span>Brand Design & Strategy</span>
-          </Badge>
-          <Badge className="w-[249px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+          </GlowingBadge>
+          <GlowingBadge className="w-[249px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
             <WebDevelopmentIcon />
             <span>Web Development (Low-Code + AI)</span>
-          </Badge>
+          </GlowingBadge>
         </div>
 
         <div className="flex items-center justify-center gap-3">
@@ -66,10 +67,10 @@ export default function BottomHeroContent() {
         </div>
 
         <div className="flex items-center justify-center">
-          <Badge variant="customBadge" className="">
+          <GlowingBadge containerClassName="rounded-full">
             <AvailableCollabIcon />
             <span>Available for collaboration</span>
-          </Badge>
+          </GlowingBadge>
         </div>
       </div>
     </section>
