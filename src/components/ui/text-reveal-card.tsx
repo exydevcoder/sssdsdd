@@ -88,7 +88,7 @@ export const TextRevealCard = ({ text, revealText, children, className }: TextRe
             style={{
               textShadow: '4px 4px 15px rgba(0,0,0,0.5)'
             }}
-            className="font-bold text-white bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle bg-gradient-to-b from-white to-neutral-300"
+            className="font-bold text-[#6EE7B7] bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle bg-gradient-to-b from-white to-neutral-300"
           >
             {revealText}
           </p>

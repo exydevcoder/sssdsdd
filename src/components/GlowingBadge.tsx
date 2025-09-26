@@ -1,28 +1,49 @@
 import { ReactNode } from "react";
-import { Badge } from "./ui/badge";
 import { GlowingEffect } from "./ui/glowing-effect";
 
-type GlowingBadgeProps = {
+type GlowingWrapperProps = {
   children: ReactNode;
   className?: string;
   containerClassName?: string;
+  // GlowingEffect props with sensible defaults
+  blur?: number;
+  borderWidth?: number;
+  spread?: number;
+  glow?: boolean;
+  disabled?: boolean;
+  proximity?: number;
+  inactiveZone?: number;
+  movementDuration?: number;
 };
 
-export default function GlowingBadge({ children, className, containerClassName }: GlowingBadgeProps) {
+export default function GlowingWrapper({ 
+  children, 
+  className, 
+  containerClassName,
+  blur = 0,
+  borderWidth = 2,
+  spread = 50,
+  glow = true,
+  disabled = false,
+  proximity = 0,
+  inactiveZone = 0.01,
+  movementDuration = 2
+}: GlowingWrapperProps) {
   return (
-    <div className={`relative rounded-[6px] ${containerClassName}`}>
+    <div className={`relative ${containerClassName || ''}`}>
       <GlowingEffect
-        blur={0}
-        borderWidth={2}
-        spread={50}
-        glow={true}
-        disabled={false}
-        proximity={0}
-        inactiveZone={0.01}
+        blur={blur}
+        borderWidth={borderWidth}
+        spread={spread}
+        glow={glow}
+        disabled={disabled}
+        proximity={proximity}
+        inactiveZone={inactiveZone}
+        movementDuration={movementDuration}
       />
-      <Badge variant="customBadge" className={className}>
+      <div className={className}>
         {children}
-      </Badge>
+      </div>
     </div>
   );
 }

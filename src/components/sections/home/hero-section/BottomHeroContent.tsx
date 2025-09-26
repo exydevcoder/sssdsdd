@@ -4,6 +4,7 @@ import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
 import { StaticGradientBorder } from '@/components/animations/StaticGradientBorder';
 import LetTalkBtn from '@/components/buttons/LetTalkBtn';
 import ViewMyWorkBtn from '@/components/buttons/ViewMyWorkBtn';
+import GlowingWrapper from '@/components/GlowingBadge';
 import GlowingBadge from '@/components/GlowingBadge';
 import { AvailableCollabIcon, BrandDesignIcon, MotionDesignIcon, ProductDesignIcon, UiUxDesignIcon, WebDevelopmentIcon } from '@/components/icon';
 import { Badge } from '@/components/ui/badge';
@@ -20,26 +21,36 @@ export default function BottomHeroContent() {
         </div>
 
         <div className="max-w-[498px] mx-auto flex flex-wrap items-center justify-center gap-2">
-          <GlowingBadge className="w-[124px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
-            <UiUxDesignIcon />
-            <span>UI/UX Design</span>
-          </GlowingBadge>
-          <GlowingBadge className="w-[135px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
-            <ProductDesignIcon />
-            <span>Product Design</span>
-          </GlowingBadge>
-          <GlowingBadge className="w-[130px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
-            <MotionDesignIcon />
-            <span>Motion Design</span>
-          </GlowingBadge>
-          <GlowingBadge className="w-[187px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
-            <BrandDesignIcon />
-            <span>Brand Design & Strategy</span>
-          </GlowingBadge>
-          <GlowingBadge className="w-[249px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
-            <WebDevelopmentIcon />
-            <span>Web Development (Low-Code + AI)</span>
-          </GlowingBadge>
+          <GlowingWrapper containerClassName='rounded-[6px]'>
+            <Badge className="w-[124px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+              <UiUxDesignIcon />
+              <span>UI/UX Design</span>
+            </Badge>
+          </GlowingWrapper>
+          <GlowingWrapper containerClassName='rounded-[6px]'>
+            <Badge className="w-[135px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+              <ProductDesignIcon />
+              <span>Product Design</span>
+            </Badge>
+          </GlowingWrapper>
+          <GlowingWrapper containerClassName='rounded-[6px]'>
+            <Badge className="w-[130px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+              <MotionDesignIcon />
+              <span>Motion Design</span>
+            </Badge>
+          </GlowingWrapper>
+          <GlowingWrapper containerClassName='rounded-[6px]'>
+            <Badge className="w-[187px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+              <BrandDesignIcon />
+              <span>Brand Design & Strategy</span>
+            </Badge>
+          </GlowingWrapper>
+          <GlowingWrapper containerClassName='rounded-[6px]'>
+            <Badge className="w-[249px] flex items-center justify-center gap-2 border border-white/10 rounded-[6px] px-[13px] py-[7px]">
+              <WebDevelopmentIcon />
+              <span>Web Development (Low-Code + AI)</span>
+            </Badge>
+          </GlowingWrapper>
         </div>
 
         <div className="flex items-center justify-center gap-3">
