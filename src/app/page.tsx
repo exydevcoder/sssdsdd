@@ -1,13 +1,13 @@
+import ApproachSection from "@/components/sections/home/approach-section/ApproachSection";
 import HeroSection from "@/components/sections/home/hero-section/HeroSection";
-import SelectedWorkSection from "@/components/sections/home/selected-works/SelectedWorkSection";
-import Thdhd from "@/components/sections/home/thdhd";
+import WorkSection from "@/components/sections/home/work-section/WorkSection";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <SelectedWorkSection />
-      <Thdhd />
+      <WorkSection />
+      <ApproachSection />
     </>
   );
 }

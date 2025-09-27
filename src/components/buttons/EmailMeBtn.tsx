@@ -2,12 +2,12 @@ import GlowingWrapper from '../GlowingBadge';
 import { EmailIcon } from '../icon';
 import { Button } from '../ui/button';
 
-export default function LetTalkBtn() {
+export default function EmailMeBtn() {
   return (
     <GlowingWrapper>
-      <Button variant="customBtn" className="w-[119px] bg-neutral-900 border border-white/10">
+      <Button variant="customBtn" className='w-[117px]'>
         <EmailIcon />
-        <span className="text-white">Let's Talk</span>
+        <span className="text-white">Email me</span>
       </Button>
     </GlowingWrapper>
   );

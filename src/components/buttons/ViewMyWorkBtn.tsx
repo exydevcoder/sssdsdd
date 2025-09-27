@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 
 export default function ViewMyWorkBtn() {
   return (
-    <GlowingWrapper containerClassName="rounded-[11px]">
+    <GlowingWrapper>
       <Button variant="customBtn">
         <StarIcon />
         <span>View My Work</span>

@@ -108,7 +108,7 @@ export default function FloatingDockDemo() {
   md:right-[80px] 
   lg:right-[100px] 
   xl:right-[115px] 
-  [@media(min-width:1600px)]:right-[135px]
+  [@media(min-width:1600px)]:right-[160px]
   [@media(min-width:1900px)]:right-[300px] 
   top-[45%]
   x320:top-[45%]

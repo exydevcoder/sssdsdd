@@ -18,6 +18,7 @@ const badgeVariants = cva(
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
           customBadge: "w-48 min-h-7 gap-[8px] text-neutral-300 text-xs font-normal leading-[16px] bg-neutral-900/60 rounded-full border border-white/10 outline outline-1 outline-offset-[-1px] outline-white/10 backdrop-blur-[2px]",
+          tagsStyle: "text-emerald-300 text-xs min-h-[25px] border border-emerald-300/20 font-medium leading-none px-2.5 py-1.5 bg-zinc-800 rounded-full shadow-[0px_0px_0px_1px_rgba(52,211,153,0.20)] flex justify-center items-center",
       },
     },
     defaultVariants: {

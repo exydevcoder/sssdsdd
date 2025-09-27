@@ -40,9 +40,11 @@ export const TextRevealCard = ({ text, revealText, children, className }: TextRe
     setIsMouseOver(false);
     setWidthPercentage(0);
   }
+  
   function mouseEnterHandler() {
     setIsMouseOver(true);
   }
+  
   function touchMoveHandler(event: React.TouchEvent<HTMLDivElement>) {
     event.preventDefault();
     const clientX = event.touches[0]!.clientX;
@@ -53,58 +55,76 @@ export const TextRevealCard = ({ text, revealText, children, className }: TextRe
   }
 
   const rotateDeg = (widthPercentage - 50) * 0.1;
+  
+  // Enhanced reveal effect - reveals more text with smoother progression
+  const revealWidth = Math.min(widthPercentage * 1.5, 100); // Boost the reveal area
+  const clipPathPercentage = Math.max(0, 100 - revealWidth);
+  
   return (
     <div
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       onMouseMove={mouseMoveHandler}
-      // onTouchStart={mouseEnterHandler}
       onTouchEnd={mouseLeaveHandler}
       onTouchMove={touchMoveHandler}
       ref={cardRef}
-      className={cn('relative overflow-hidden', className)}
+      className={cn('relative overflow-visible', className)}
     >
       {children}
 
-      <div className="relative flex items-center overflow-hidden">
+      {/* Container that accommodates the longer text */}
+      <div className="relative flex items-center overflow-visible min-w-max">
+        {/* Hidden text to establish container width - uses the longer of the two texts */}
+        <p className="font-bold text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle whitespace-nowrap opacity-0 pointer-events-none">
+          {revealText.length > text.length ? revealText : text}
+        </p>
+        
+        {/* Reveal Text Layer - Shows complete text with mask */}
         <motion.div
-          style={{
-            width: '100%'
+          className="absolute inset-0 z-20 will-change-transform overflow-visible flex items-center"
+          animate={{
+            opacity: widthPercentage > 2 ? 1 : 0
           }}
-          animate={
-            isMouseOver
-              ? {
-                  opacity: widthPercentage > 0 ? 1 : 0,
-                  clipPath: `inset(0 ${100 - widthPercentage}% 0 0)`
-                }
-              : {
-                  clipPath: `inset(0 ${100 - widthPercentage}% 0 0)`
-                }
-          }
-          transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="absolute z-20 will-change-transform"
+          transition={isMouseOver ? { duration: 0 } : { duration: 0.3 }}
+          style={{
+            maskImage: `linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) ${widthPercentage}%, rgba(255,255,255,0) ${widthPercentage + 2}%, rgba(255,255,255,0) 100%)`,
+            WebkitMaskImage: `linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) ${widthPercentage}%, rgba(255,255,255,0) ${widthPercentage + 2}%, rgba(255,255,255,0) 100%)`
+          }}
         >
           <p
             style={{
-              textShadow: '4px 4px 15px rgba(0,0,0,0.5)'
+              textShadow: '4px 4px 15px rgba(0,0,0,0.5)',
+              filter: `brightness(${100 + widthPercentage * 0.3}%)`
             }}
-            className="font-bold text-[#6EE7B7] bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle bg-gradient-to-b from-white to-neutral-300"
+            className="font-bold text-[#6EE7B7] bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle bg-gradient-to-b from-white to-neutral-300 whitespace-nowrap"
           >
             {revealText}
           </p>
         </motion.div>
+        
+        {/* Enhanced Separator Line */}
         <motion.div
           animate={{
             left: `${widthPercentage}%`,
             rotate: `${rotateDeg}deg`,
-            opacity: widthPercentage > 0 ? 1 : 0
+            opacity: widthPercentage > 0 ? Math.min(widthPercentage / 8, 1) : 0,
+            width: `${4 + (widthPercentage / 10)}px`
           }}
-          transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="flex items justify-center bg-gradient-to-b from-transparent via-neutral-800 to-transparent absolute z-50 will-change-transform"
+          transition={isMouseOver ? { duration: 0 } : { duration: 0.3 }}
+          className="h-full bg-gradient-to-b from-transparent via-[#6EE7B7] to-transparent absolute z-50 will-change-transform blur-[1px]"
         ></motion.div>
 
-        <div className="overflow-hidden flex items justify-center [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="font-bold bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle text-transparent bg-[#323238]">{text}</p>
+        {/* Background Text - Fades out as reveal happens */}
+        <div className="absolute inset-0 overflow-visible flex items-center justify-center [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
+          <motion.p 
+            className="font-bold bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle text-transparent bg-[#323238] whitespace-nowrap"
+            animate={{
+              opacity: widthPercentage > 5 ? Math.max(0, 1 - (widthPercentage / 80)) : 1
+            }}
+            transition={isMouseOver ? { duration: 0 } : { duration: 0.2 }}
+          >
+            {text}
+          </motion.p>
         </div>
       </div>
     </div>
