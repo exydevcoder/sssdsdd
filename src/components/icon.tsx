@@ -554,23 +554,3 @@ export const ShipIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M5.25 7.50016L6.41667 8.66683L8.75 6.3335" stroke="#6EE7B7" strokeWidth={0.875} strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-
-export const TimelineDotIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg width={41} height={41} viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <g filter="url(#filter0_d_31_107)">
-      <rect x={12} y={12} width={17} height={17} rx={8.5} fill="#34D399" />
-    </g>
-    <defs>
-      <filter id="filter0_d_31_107" x={0} y={0} width={41} height={41} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-        <feFlood floodOpacity={0} result="BackgroundImageFix" />
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-        <feMorphology radius={12} operator="dilate" in="SourceAlpha" result="effect1_dropShadow_31_107" />
-        <feOffset />
-        <feComposite in2="hardAlpha" operator="out" />
-        <feColorMatrix type="matrix" values="0 0 0 0 0.407843 0 0 0 0 0.407843 0 0 0 0 0.407843 0 0 0 0.1 0" />
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_31_107" />
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_31_107" result="shape" />
-      </filter>
-    </defs>
-  </svg>
-);
