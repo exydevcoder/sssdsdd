@@ -53,7 +53,7 @@ export default function ApproachSection() {
                       <div className="relative -top-2 w-4 h-4 bg-emerald-400 rounded-full shadow-[0px_0px_0px_12px_rgba(104,104,104,0.10)]" />
                       <GlowingWrapper containerClassName="rounded-xl">
                         <div className="mt-6 p-5 w-full bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
-                          <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px] cursor-default">
+                          <Button variant="customBtn" className="hover:!bg-[#15251F] max-w-max h-[30px] rounded-[6px] cursor-default">
                             <list.icon />
                             <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
                           </Button>
