@@ -122,11 +122,11 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    
   }
 }
 
@@ -235,4 +235,20 @@
 }
 .show-floating-audio-button {
   display: flex;
+}
+
+.gradient-vertical-line {
+  position: relative;
+  padding-left: 4px; /* Make room for fake border */
+}
+
+.gradient-vertical-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to top, #6ee7b7, #bef264, rgba(251,191,36,0));
+  border-radius: 100px 0 0 100px;
 }

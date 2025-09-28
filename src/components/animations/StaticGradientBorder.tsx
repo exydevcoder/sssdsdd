@@ -26,7 +26,7 @@ export function StaticGradientBorder({ children, className = 'p-[1px]', borderWi
 
   return (
     <div
-      className={`p-[${borderWidth}px] ${borderRadius} relative overflow-hidden ${className}`}
+      className={`p-[${borderWidth}px] ${borderRadius} relative overflow-hidden w-full ${className}`}
       style={{
         background: createGradientWithGaps(0)
       }}

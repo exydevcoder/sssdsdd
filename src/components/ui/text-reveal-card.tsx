@@ -75,7 +75,7 @@ export const TextRevealCard = ({ text, revealText, children, className }: TextRe
       {/* Container that accommodates the longer text */}
       <div className="relative flex items-center overflow-visible min-w-max">
         {/* Hidden text to establish container width - uses the longer of the two texts */}
-        <p className="font-bold text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle whitespace-nowrap opacity-0 pointer-events-none">
+        <p className="font-bold text-[60px] x320:text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle whitespace-nowrap opacity-0 pointer-events-none">
           {revealText.length > text.length ? revealText : text}
         </p>
         
@@ -96,7 +96,7 @@ export const TextRevealCard = ({ text, revealText, children, className }: TextRe
               textShadow: '4px 4px 15px rgba(0,0,0,0.5)',
               filter: `brightness(${100 + widthPercentage * 0.3}%)`
             }}
-            className="font-bold text-[#6EE7B7] bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle bg-gradient-to-b from-white to-neutral-300 whitespace-nowrap"
+            className="font-bold text-[#6EE7B7] bg-clip-text text-[60px] x320:text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle bg-gradient-to-b from-white to-neutral-300 whitespace-nowrap"
           >
             {revealText}
           </p>
@@ -117,7 +117,7 @@ export const TextRevealCard = ({ text, revealText, children, className }: TextRe
         {/* Background Text - Fades out as reveal happens */}
         <div className="absolute inset-0 overflow-visible flex items-center justify-center [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
           <motion.p 
-            className="font-bold bg-clip-text text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle text-transparent bg-[#323238] whitespace-nowrap"
+            className="font-bold bg-clip-text text-[60px] x320:text-[80px] md:text-[100px] lg:text-[150px] 2xl:text-[256px] lastStepStyle text-transparent bg-[#323238] whitespace-nowrap"
             animate={{
               opacity: widthPercentage > 5 ? Math.max(0, 1 - (widthPercentage / 80)) : 1
             }}

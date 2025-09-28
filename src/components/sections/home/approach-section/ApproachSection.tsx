@@ -1,11 +1,82 @@
+import GlowingWrapper from '@/components/GlowingBadge';
+import { AlignIcon, ExploreIcon, ShipIcon, TimelineDotIcon, ValidateIcon } from '@/components/icon';
+import { Button } from '@/components/ui/button';
 import { TextRevealCard } from '@/components/ui/text-reveal-card';
 
 export default function ApproachSection() {
+  const data = [
+    {
+      icon: AlignIcon,
+      title: 'Align',
+      desc: 'Define goals, constraints and  success metrics. Map risks & dependencies.'
+    },
+    {
+      icon: ExploreIcon,
+      title: 'Explore',
+      desc: 'Diverge thoughtfully, test assumptions fast. Converge with evidence.'
+    },
+    {
+      icon: ValidateIcon,
+      title: 'Validate',
+      desc: 'Prototype with real data. Iterate with qualitative and quantitative signals.'
+    },
+    {
+      icon: ShipIcon,
+      title: 'Ship',
+      desc: 'Polish details, document decisions. Hand off cleanly with tokens and specs.'
+    }
+  ];
   return (
-    <section className="section border">
+    <section className="relative section pb-[128px] md:pb-[256px]">
       <div className="inner-section">
-        <div className="flex items-center justify-center">
-          <TextRevealCard text="Approach" revealText="My Processes" />
+        <div className="flex flex-col gap-16">
+          <div className="flex flex-col items-center justify-center gap-16">
+            <TextRevealCard text="Approach" revealText="My Processes" />
+            <p className="max-w-[820px] text-center justify-center text-white text-[20px] x320:text-[32px] md:text-4xl font-light x320:leading-[40px] md:leading-[48px]">
+              Opinionated where it matters, flexible where it counts. I focus on clarity, speed, and measurable outcomes.
+            </p>
+          </div>
+
+          {/* desktop view */}
+          <div className="hidden lg:block">
+            <div className="relative flex h-0.5 bg-gradient-to-l from-emerald-300 via-lime-300 to-amber-300/0 rounded-[100px]">
+              <div className="relative flex gap-6 w-full">
+                {data.map((list, index) => (
+                  <div key={index} className="relative flex-1 w-full">
+                    <div className="relative -top-2 w-4 h-4 bg-emerald-400 rounded-full shadow-[0px_0px_0px_12px_rgba(104,104,104,0.10)]" />
+                    <div className="mt-6 p-5 w-full bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
+                      <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px]">
+                        <list.icon />
+                        <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
+                      </Button>
+                      <p className="max-w-[210px] mt-0.5 text-neutral-300 text-sm font-normal leading-[20px]">{list.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* tablet & mobile view */}
+          <div className="pl-6 block lg:hidden">
+            <div className="relative flex flex-col gradient-vertical-line pt-10 pb-5">
+              <div className="relative flex flex-col gap-6">
+                {data.map((list, index) => (
+                  <div key={index} className="relative flex gap-6 flex-1">
+                    <span className="block relative -left-[8px] size-3 rounded-full bg-emerald-400 shadow-[0px_0px_0px_12px_rgba(52,211,153,0.10)]"></span>
+
+                    <div className="p-5 w-full lg:w-[286px] bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
+                      <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px]">
+                        <list.icon />
+                        <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
+                      </Button>
+                      <p className="mt-0.5 text-neutral-300 text-sm font-normal leading-[20px]">{list.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

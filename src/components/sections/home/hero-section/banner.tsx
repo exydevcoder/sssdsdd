@@ -47,7 +47,7 @@ export default function HeroBanner() {
 
   return (
     <>
-      <section data-audio-read className="section flex items-center justify-center pb-14 sm:pb-18">
+      <section id="home" data-audio-read className="section scroll-mt-24 flex items-center justify-center pb-14 sm:pb-18">
         <HeroBannerCircleShape />
         <div className="inner-section flex items-center justify-between w-full">
           <div className="relative w-full flex flex-col gap-7 px-2 sm:px-8 py-6">

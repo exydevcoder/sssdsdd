@@ -81,24 +81,26 @@ export default function BottomHeroContent() {
           </FadeIn>
         </div>
 
-        <FadeIn delay={1.1} direction="up" className="flex justify-center">
-          <StaticGradientBorder>
-            <div className="w-full xs:min-w-96 min-h-28 p-5 xs:p-6 flex bg-gradient-to-b from-neutral-900 to-neutral-950 rounded-xl backdrop-blur-md">
-              <div className="max-w-full pr-5 xs:pr-7">
-                <AnimatedCounter from={0} to={10} suffix="+" duration={2.5} />
-                <span className="text-zinc-500 text-nowrap text-xs font-normal">Years Experience</span>
+        <div className="flex items-center justify-center">
+          <FadeIn delay={1.1} direction="up" className="flex justify-center w-[288px] xs:w-[388px] mx-auto">
+            <StaticGradientBorder>
+              <div className="w-full xs:min-w-96 min-h-28 p-5 xs:p-6 gap-6 flex flex-col xs:flex-row justify-between bg-gradient-to-b from-neutral-900 to-neutral-950 rounded-xl backdrop-blur-md">
+                <div className="w-full text-center xs:text-left">
+                  <AnimatedCounter from={0} to={10} suffix="+" duration={2.5} />
+                  <span className="text-zinc-500 text-nowrap text-xs font-normal">Years Experience</span>
+                </div>
+                <div className="w-full text-center xs:text-left">
+                  <AnimatedCounter from={0} to={50} suffix="+" duration={2.8} />
+                  <span className="text-zinc-500 text-nowrap text-xs font-normal">Projects Completed</span>
+                </div>
+                <div className="w-full text-center xs:text-left">
+                  <AnimatedCounter from={0} to={100} suffix="%" duration={3} />
+                  <span className="text-zinc-500 text-nowrap text-xs font-normal">Happy Clients</span>
+                </div>
               </div>
-              <div className="max-w-full pr-5 xs:pr-7">
-                <AnimatedCounter from={0} to={50} suffix="+" duration={2.8} />
-                <span className="text-zinc-500 text-nowrap text-xs font-normal">Projects Completed</span>
-              </div>
-              <div className="max-w-full">
-                <AnimatedCounter from={0} to={100} suffix="%" duration={3} />
-                <span className="text-zinc-500 text-nowrap text-xs font-normal">Happy Clients</span>
-              </div>
-            </div>
-          </StaticGradientBorder>
-        </FadeIn>
+            </StaticGradientBorder>
+          </FadeIn>
+        </div>
 
         <FadeIn delay={1.2} direction="up" className="flex items-center justify-center">
           <GlowingWrapper containerClassName="rounded-full">

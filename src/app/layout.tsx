@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${rightGrotesk.variable} antialiased`}>
+      <body className={`scroll-smooth ${inter.variable} ${rightGrotesk.variable} antialiased`}>
         <HeaderSection />
         <CustomCursor />
         <main className='mt-[85px]'>{children}</main>

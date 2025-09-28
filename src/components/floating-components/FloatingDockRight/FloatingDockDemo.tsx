@@ -23,9 +23,9 @@ export default function FloatingDockDemo() {
   const navItems: NavItem[] = [
     { icon: 'Home', label: 'Home', id: 'home', href: '#home' },
     { icon: 'Work', label: 'Work', id: 'work', href: '#work' },
-    { icon: 'Linkedin', label: 'Linkedin', id: 'linkedin', href: '#linkedin' },
-    { icon: 'Twitter', label: 'Twitter', id: 'twitter', href: '#Twitter' },
-    { icon: 'Dribble', label: 'Dribble', id: 'dribble', href: '#dribble' }
+    { icon: 'Linkedin', label: 'Linkedin', id: 'linkedin', href: 'https://linkedin.com/' },
+    { icon: 'Twitter', label: 'Twitter', id: 'twitter', href: 'https://twitter.com/' },
+    { icon: 'Dribble', label: 'Dribble', id: 'dribble', href: 'https://dribbble.com/' }
   ];
 
   useEffect(() => {
@@ -129,13 +129,13 @@ export default function FloatingDockDemo() {
               <p className="text-center hidden md:hidden md:group-hover:block px-1.5 py-0.5 bg-[#20302A] rounded justify-center items-center gap-2.5 text-emerald-400 text-[10px] font-medium leading-3.5 whitespace-nowrap overflow-hidden">
                 {item.label}
               </p>
-              <Link
+              <a
                 href={item.href}
                 ref={el => addToRefs(el, index)}
                 className="w-10 h-10 bg-neutral-800 rounded-xl flex justify-center items-center hover:bg-[#20302A] transition-colors duration-200"
               >
                 <DockIcons name={item.icon} />
-              </Link>
+              </a>
             </div>
           ))}
         </div>

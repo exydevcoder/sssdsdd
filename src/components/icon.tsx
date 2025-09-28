@@ -468,3 +468,109 @@ export const BooMeIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M2.5 7.1665H14.5" stroke="white" strokeOpacity={0.9} strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+export const AlignIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={14} height={15} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M9.47334 5.02686L8.42101 8.18327C8.36373 8.35511 8.26723 8.51126 8.13915 8.63934C8.01107 8.76742 7.85493 8.86392 7.68309 8.92119L4.52667 9.97352L5.57901 6.81711C5.63628 6.64527 5.73278 6.48912 5.86086 6.36104C5.98894 6.23296 6.14508 6.13646 6.31692 6.07919L9.47334 5.02686Z"
+      stroke="#6EE7B7"
+      strokeWidth={0.875}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M7 13.3332C10.2217 13.3332 12.8333 10.7215 12.8333 7.49984C12.8333 4.27818 10.2217 1.6665 7 1.6665C3.77834 1.6665 1.16667 4.27818 1.16667 7.49984C1.16667 10.7215 3.77834 13.3332 7 13.3332Z"
+      stroke="#6EE7B7"
+      strokeWidth={0.875}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const ExploreIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={20} height={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g filter="url(#filter0_d_31_124)">
+      <path
+        d="M8.25 2.25H5.91667C5.27233 2.25 4.75 2.77233 4.75 3.41667V5.75C4.75 6.39433 5.27233 6.91667 5.91667 6.91667H8.25C8.89433 6.91667 9.41667 6.39433 9.41667 5.75V3.41667C9.41667 2.77233 8.89433 2.25 8.25 2.25Z"
+        stroke="#6EE7B7"
+        strokeWidth={0.875}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.08334 6.9165V9.24984C7.08334 9.55926 7.20626 9.856 7.42505 10.0748C7.64384 10.2936 7.94059 10.4165 8.25001 10.4165H10.5833"
+        stroke="#6EE7B7"
+        strokeWidth={0.875}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14.0833 8.0835H11.75C11.1057 8.0835 10.5833 8.60583 10.5833 9.25016V11.5835C10.5833 12.2278 11.1057 12.7502 11.75 12.7502H14.0833C14.7277 12.7502 15.25 12.2278 15.25 11.5835V9.25016C15.25 8.60583 14.7277 8.0835 14.0833 8.0835Z"
+        stroke="#6EE7B7"
+        strokeWidth={0.875}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+    <defs>
+      <filter id="filter0_d_31_124" x={-1} y={0.5} width={22} height={22} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+        <feFlood floodOpacity={0} result="BackgroundImageFix" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feOffset dy={4} />
+        <feGaussianBlur stdDeviation={2} />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_31_124" />
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_31_124" result="shape" />
+      </filter>
+    </defs>
+  </svg>
+);
+
+export const ValidateIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={14} height={15} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M2.625 2.25H11.375" stroke="#6EE7B7" strokeWidth={0.875} strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M3.5 2.25V11.5833C3.5 11.8928 3.62292 12.1895 3.84171 12.4083C4.0605 12.6271 4.35725 12.75 4.66667 12.75H9.33333C9.64275 12.75 9.9395 12.6271 10.1583 12.4083C10.3771 12.1895 10.5 11.8928 10.5 11.5833V2.25"
+      stroke="#6EE7B7"
+      strokeWidth={0.875}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M3.5 8.6665H10.5" stroke="#6EE7B7" strokeWidth={0.875} strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const ShipIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={14} height={15} viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M6.99996 13.3332C10.2216 13.3332 12.8333 10.7215 12.8333 7.49984C12.8333 4.27818 10.2216 1.6665 6.99996 1.6665C3.7783 1.6665 1.16663 4.27818 1.16663 7.49984C1.16663 10.7215 3.7783 13.3332 6.99996 13.3332Z"
+      stroke="#6EE7B7"
+      strokeWidth={0.875}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M5.25 7.50016L6.41667 8.66683L8.75 6.3335" stroke="#6EE7B7" strokeWidth={0.875} strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const TimelineDotIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={41} height={41} viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g filter="url(#filter0_d_31_107)">
+      <rect x={12} y={12} width={17} height={17} rx={8.5} fill="#34D399" />
+    </g>
+    <defs>
+      <filter id="filter0_d_31_107" x={0} y={0} width={41} height={41} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+        <feFlood floodOpacity={0} result="BackgroundImageFix" />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+        <feMorphology radius={12} operator="dilate" in="SourceAlpha" result="effect1_dropShadow_31_107" />
+        <feOffset />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0.407843 0 0 0 0 0.407843 0 0 0 0 0.407843 0 0 0 0.1 0" />
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_31_107" />
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_31_107" result="shape" />
+      </filter>
+    </defs>
+  </svg>
+);
