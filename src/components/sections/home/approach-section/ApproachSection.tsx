@@ -51,16 +51,15 @@ export default function ApproachSection() {
                   <FadeIn key={index} delay={0.4 + index * 0.4} direction="left">
                     <div className="relative flex-1 w-full">
                       <div className="relative -top-2 w-4 h-4 bg-emerald-400 rounded-full shadow-[0px_0px_0px_12px_rgba(104,104,104,0.10)]" />
-                      <GlowingWrapper containerClassName='rounded-xl'>
-                       <div className="mt-6 p-5 w-full bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
-                        <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px] cursor-default">
-                          <list.icon />
-                          <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
-                        </Button>
-                        <p className="max-w-[210px] mt-0.5 text-neutral-300 text-sm font-normal leading-[20px]">{list.desc}</p>
-                      </div> 
-                    </GlowingWrapper>
-                    
+                      <GlowingWrapper containerClassName="rounded-xl">
+                        <div className="mt-6 p-5 w-full bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
+                          <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px] cursor-default">
+                            <list.icon />
+                            <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
+                          </Button>
+                          <p className="max-w-[210px] mt-0.5 text-neutral-300 text-sm font-normal leading-[20px]">{list.desc}</p>
+                        </div>
+                      </GlowingWrapper>
                     </div>
                   </FadeIn>
                 ))}
@@ -73,16 +72,18 @@ export default function ApproachSection() {
             <div className="relative flex flex-col gradient-vertical-line pt-10 pb-5">
               <div className="relative flex flex-col gap-6">
                 {data.map((list, index) => (
-                  <div key={index} className="relative flex gap-6 flex-1">
-                    <span className="block relative -left-[8px] size-3 rounded-full bg-emerald-400 shadow-[0px_0px_0px_12px_rgba(52,211,153,0.10)]"></span>
-                    <div className="p-5 w-full lg:w-[286px] bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
-                      <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px]">
-                        <list.icon />
-                        <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
-                      </Button>
-                      <p className="mt-0.5 text-neutral-300 text-sm font-normal leading-[20px]">{list.desc}</p>
+                  <FadeIn key={index} delay={0.4 + index * 0.4} direction="up">
+                    <div className="relative flex gap-6 flex-1">
+                      <span className="block relative -left-[8px] size-3 rounded-full bg-emerald-400 shadow-[0px_0px_0px_12px_rgba(52,211,153,0.10)]"></span>
+                      <div className="p-5 w-full lg:w-[286px] bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
+                        <Button variant="customBtn" className="max-w-max h-[30px] rounded-[6px]">
+                          <list.icon />
+                          <span className="text-emerald-300 text-xs font-medium leading-[16.5px]">{list.title}</span>
+                        </Button>
+                        <p className="mt-0.5 text-neutral-300 text-sm font-normal leading-[20px]">{list.desc}</p>
+                      </div>
                     </div>
-                  </div>
+                  </FadeIn>
                 ))}
               </div>
             </div>
