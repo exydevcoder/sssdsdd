@@ -48,10 +48,10 @@ export default function ApproachSection() {
             <div className="relative flex h-0.5 bg-gradient-to-l from-emerald-300 via-lime-300 to-amber-300/0 rounded-[100px]">
               <div className="relative flex gap-6 w-full">
                 {data.map((list, index) => (
-                  <FadeIn key={index} delay={0.4 + index * 0.4} direction="left">
+                  <FadeIn key={index} delay={0.4 + index * 0.4} direction="left" className="w-full">
                     <div className="relative flex-1 w-full">
                       <div className="relative -top-2 w-4 h-4 bg-emerald-400 rounded-full shadow-[0px_0px_0px_12px_rgba(104,104,104,0.10)]" />
-                      <GlowingWrapper containerClassName="rounded-xl">
+                      <GlowingWrapper containerClassName="rounded-xl w-full">
                         <div className="mt-6 p-5 w-full bg-neutral-900 rounded-xl outline outline-offset-[-1px] outline-white/10 flex flex-col justify-start items-start gap-3">
                           <Button variant="customBtn" className="hover:!bg-[#15251F] max-w-max h-[30px] rounded-[6px] cursor-default">
                             <list.icon />
