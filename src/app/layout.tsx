@@ -33,7 +33,7 @@ export default function RootLayout({
         <HeaderSection />
         <CustomCursor />
         <main className='mt-[85px]'>{children}</main>
-        <FloatingComponent />
+        {/* <FloatingComponent /> */}
       </body>
     </html>
   );

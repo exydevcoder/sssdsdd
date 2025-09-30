@@ -35,8 +35,7 @@ export default function AboutSection() {
             </FadeIn>
           </div>
 
-          <div ref={containerRef} className="w-full sm:px-8">
-            {/* Panel 1 */}
+          <div ref={containerRef} className="w-full p-8">
             <motion.div style={{ opacity: panel1Opacity, scale: panel1Scale }}>
               <StepOne />
             </motion.div>
