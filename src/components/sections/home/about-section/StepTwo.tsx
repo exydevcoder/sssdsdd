@@ -5,18 +5,18 @@ import SmallAbout from './SmallAbout';
 
 export default function StepTwo() {
   return (
-    <StaticGradientBorder
-      borderWidth={4}
-      colors={[
-        { color: '#6EE7B7', startDeg: 0, endDeg: 140 },
+    // <StaticGradientBorder
+    //   borderWidth={4}
+    //   colors={[
+    //     { color: '#6EE7B7', startDeg: 0, endDeg: 140 },
 
-        { color: '#CCF544', startDeg: 200, endDeg: 217 },
+    //     { color: '#CCF544', startDeg: 200, endDeg: 217 },
 
-        { color: 'transparent', startDeg: 0, endDeg: 325 },
+    //     { color: 'transparent', startDeg: 0, endDeg: 325 },
 
-        { color: '#CCF544', startDeg: 100, endDeg: 321 }
-      ]}
-    >
+    //     { color: '#CCF544', startDeg: 100, endDeg: 321 }
+    //   ]}
+    // >
       <div className="flex flex-col-reverse lg:flex-row justify-between rounded-2xl overflow-hidden bg-gradient-to-b border-[#424242] from-neutral-900 to-neutral-950">
         <div className="flex flex-col justify-between w-[100%] lg:w-[55%] h-[474px] lg:h-[774px] relative p-6 py-8">
           <div className="flex flex-col gap-8">
@@ -31,6 +31,6 @@ export default function StepTwo() {
           <Image src={aboutImg} className="object-cover object-top" alt="Olawale profile picture" priority fill />
         </div>
       </div>
-    </StaticGradientBorder>
+    // {/* </StaticGradientBorder> */}
   );
 }

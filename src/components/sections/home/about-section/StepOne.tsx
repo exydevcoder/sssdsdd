@@ -5,17 +5,17 @@ import SmallAbout from './SmallAbout';
 
 export default function StepOne() {
   return (
-    <StaticGradientBorder
-      borderWidth={4}
-      colors={[
-        { color: '#6EE7B7', startDeg: 30, endDeg: 75 },
-        { color: '#CCF544', startDeg: 60, endDeg: 0 },
-        { color: 'transparent', startDeg: 90, endDeg: 242 },
-        { color: '#CCF544', startDeg: 280, endDeg: 200 },
-        { color: '#6EE7B7', startDeg: 330, endDeg: 360 },
-        { color: '#CCF544', startDeg: 0, endDeg: 0 }
-      ]}
-    >
+    // <StaticGradientBorder
+    //   borderWidth={4}
+    //   colors={[
+    //     { color: '#6EE7B7', startDeg: 30, endDeg: 75 },
+    //     { color: '#CCF544', startDeg: 60, endDeg: 0 },
+    //     { color: 'transparent', startDeg: 90, endDeg: 242 },
+    //     { color: '#CCF544', startDeg: 280, endDeg: 200 },
+    //     { color: '#6EE7B7', startDeg: 330, endDeg: 360 },
+    //     { color: '#CCF544', startDeg: 0, endDeg: 0 }
+    //   ]}
+    // >
       <div className="flex flex-col-reverse md:flex-row rounded-2xl overflow-hidden bg-gradient-to-b border-[#424242] from-neutral-900 to-neutral-950">
         <div className="flex flex-col justify-between w-[100%] lg:w-[55%] h-[474px] lg:h-[774px] relative p-6 py-8">
           <div className="flex flex-col gap-8">
@@ -30,6 +30,6 @@ export default function StepOne() {
           <Image src={aboutImg} className="object-cover object-top" alt="Olawale profile picture" priority fill />
         </div>
       </div>
-    </StaticGradientBorder>
+    // </StaticGradientBorder>
   );
 }
