@@ -28,14 +28,14 @@ export default function AboutSection() {
   return (
     <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] md:pb-[256px]">
       <div className="inner-section">
-        <div className="flex flex-col gap-16">
+        <div className="max-w-[1216px] mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">
             <FadeIn delay={0.3} direction="up">
               <TextRevealCard text="Learn About Me" revealText="Know Me More" />
             </FadeIn>
           </div>
 
-          <div ref={containerRef} className="w-full sm:px-8">
+          <div ref={containerRef} className="w-full">
             {/* Panel 1 */}
             <motion.div style={{ opacity: panel1Opacity, scale: panel1Scale }}>
               <StepOne />

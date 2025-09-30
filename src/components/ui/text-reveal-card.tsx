@@ -136,5 +136,5 @@ export const TextRevealCardTitle = ({ children, className }: { children: React.R
 };
 
 export const TextRevealCardDescription = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-  return <p className={twMerge('text-[#a9a9a9] text-sm', className)}>{children}</p>;
+  return <p className={twMerge('text-white xs:text-[#a9a9a9] text-sm', className)}>{children}</p>;
 };

@@ -252,3 +252,22 @@
   background: linear-gradient(to top, #6ee7b7, #bef264, rgba(251,191,36,0));
   border-radius: 100px 0 0 100px;
 }
+
+/* In your CSS file (e.g., global.css) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px; /* Adjust width as needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Tailwind's bg-gray-100 equivalent */
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #6EE7B7; /* Tailwind's bg-gray-500 equivalent */
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #60c99f; /* Tailwind's bg-gray-700 equivalent on hover */
+}

@@ -554,3 +554,58 @@ export const ShipIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M5.25 7.50016L6.41667 8.66683L8.75 6.3335" stroke="#6EE7B7" strokeWidth={0.875} strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+export const ArrowIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width={14}
+    height={20}
+    viewBox="0 0 14 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g filter="url(#filter0_d_725_5103)">
+      <path
+        d="M5.38586 1.90679C5.06882 1.59114 4.55481 1.59114 4.23778 1.90679C3.92074 2.22249 3.92074 2.73434 4.23778 3.05004L7.87325 6.67009L4.23787 10.2901C3.92083 10.6058 3.92083 11.1176 4.23787 11.4333C4.5549 11.749 5.06891 11.749 5.38594 11.4333L9.58355 7.25344C9.58755 7.24964 9.5915 7.24574 9.59545 7.24179C9.6995 7.13824 9.7694 7.01354 9.80515 6.88154C9.80605 6.87834 9.8069 6.87509 9.8077 6.87184C9.8768 6.60404 9.8061 6.30794 9.59555 6.09829C9.59035 6.09309 9.5851 6.08799 9.5798 6.08294L5.38586 1.90679Z"
+        fill="#6EE7B7"
+      />
+    </g>
+    <defs>
+      <filter
+        id="filter0_d_725_5103"
+        x={-3}
+        y={0.670044}
+        width={20}
+        height={20}
+        filterUnits="userSpaceOnUse"
+        colorInterpolationFilters="sRGB"
+      >
+        <feFlood floodOpacity={0} result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          result="hardAlpha"
+        />
+        <feOffset dy={4} />
+        <feGaussianBlur stdDeviation={2} />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix
+          type="matrix"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+        />
+        <feBlend
+          mode="normal"
+          in2="BackgroundImageFix"
+          result="effect1_dropShadow_725_5103"
+        />
+        <feBlend
+          mode="normal"
+          in="SourceGraphic"
+          in2="effect1_dropShadow_725_5103"
+          result="shape"
+        />
+      </filter>
+    </defs>
+  </svg>
+);
