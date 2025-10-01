@@ -35,18 +35,26 @@ export default function ProductCard({ coverImg, tags, id }: ProductCardProps) {
           animate={
             isHovered
               ? {
-                  background: [createGradientWithGaps(0), createGradientWithGaps(360)]
+                  background: [createGradientWithGaps(0), createGradientWithGaps(360)],
+                  scale: 0.98
                 }
-              : {}
+              : {
+                  scale: 1
+                }
           }
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'linear'
+            ease: 'linear',
+            scale: {
+              duration: 0.3,
+              ease: 'easeInOut'
+            }
           }}
         >
-          <div className="w-full h-full rounded-[6px] overflow-hidden bg-white">
+          <div className="w-full h-full rounded-[6px] overflow-hidden bg-white relative">
             <Image src={coverImg} width={297} height={222.75} className="w-full object-cover" alt="card image" />
+            <motion.div className="absolute inset-0 bg-black" initial={{ opacity: 0 }} animate={{ opacity: isHovered ? 0.3 : 0 }} transition={{ duration: 0.3 }} />
           </div>
         </motion.div>
 
