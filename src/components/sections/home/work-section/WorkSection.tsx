@@ -10,7 +10,7 @@ export default function WorkSection() {
     <section id="work" className="section pb-[128px] md:pb-[256px]">
       <div className="inner-section flex flex-col gap-13">
         <FadeIn delay={0.3} direction="up" className="flex items-center justify-center">
-          <TextRevealCard text="Selected Works" revealText="My Case Studies" />
+          <TextRevealCard text="Projects" revealText="Case Studies" />
         </FadeIn>
         <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2}>
           <ScrollableTabs />

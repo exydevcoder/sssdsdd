@@ -4,6 +4,7 @@ import './globals.css';
 import HeaderSection from '@/components/header/HeaderSection';
 import FloatingComponent from '@/components/floating-components/FloatingComponent';
 import CustomCursor from '@/components/CustomCursor';
+import { Toaster } from '@/components/ui/sonner';
 
 const inter = localFont({
   src: './fonts/Inter/Inter-VariableFont_opsz,wght.ttf',
@@ -33,6 +34,7 @@ export default function RootLayout({
         <HeaderSection />
         <CustomCursor />
         <main className='mt-[85px]'>{children}</main>
+        <Toaster />
         {/* <FloatingComponent /> */}
       </body>
     </html>

@@ -556,14 +556,7 @@ export const ShipIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export const ArrowIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={14}
-    height={20}
-    viewBox="0 0 14 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
+  <svg width={14} height={20} viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g filter="url(#filter0_d_725_5103)">
       <path
         d="M5.38586 1.90679C5.06882 1.59114 4.55481 1.59114 4.23778 1.90679C3.92074 2.22249 3.92074 2.73434 4.23778 3.05004L7.87325 6.67009L4.23787 10.2901C3.92083 10.6058 3.92083 11.1176 4.23787 11.4333C4.5549 11.749 5.06891 11.749 5.38594 11.4333L9.58355 7.25344C9.58755 7.24964 9.5915 7.24574 9.59545 7.24179C9.6995 7.13824 9.7694 7.01354 9.80515 6.88154C9.80605 6.87834 9.8069 6.87509 9.8077 6.87184C9.8768 6.60404 9.8061 6.30794 9.59555 6.09829C9.59035 6.09309 9.5851 6.08799 9.5798 6.08294L5.38586 1.90679Z"
@@ -571,41 +564,36 @@ export const ArrowIcon = (props: SVGProps<SVGSVGElement>) => (
       />
     </g>
     <defs>
-      <filter
-        id="filter0_d_725_5103"
-        x={-3}
-        y={0.670044}
-        width={20}
-        height={20}
-        filterUnits="userSpaceOnUse"
-        colorInterpolationFilters="sRGB"
-      >
+      <filter id="filter0_d_725_5103" x={-3} y={0.670044} width={20} height={20} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
         <feFlood floodOpacity={0} result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          result="hardAlpha"
-        />
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
         <feOffset dy={4} />
         <feGaussianBlur stdDeviation={2} />
         <feComposite in2="hardAlpha" operator="out" />
-        <feColorMatrix
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-        />
-        <feBlend
-          mode="normal"
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_725_5103"
-        />
-        <feBlend
-          mode="normal"
-          in="SourceGraphic"
-          in2="effect1_dropShadow_725_5103"
-          result="shape"
-        />
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_725_5103" />
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_725_5103" result="shape" />
       </filter>
+    </defs>
+  </svg>
+);
+
+export const DownloadIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg width={16} height={17} viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g clipPath="url(#clip0_735_9529)">
+      <path
+        d="M6.97578 12.5813C7.16152 12.7672 7.38205 12.9146 7.62479 13.0152C7.86752 13.1158 8.1277 13.1676 8.39045 13.1676C8.6532 13.1676 8.91338 13.1158 9.15611 13.0152C9.39885 12.9146 9.61938 12.7672 9.80512 12.5813L11.9458 10.4407C12.0606 10.3137 12.1221 10.1475 12.1177 9.97644C12.1133 9.80536 12.0433 9.64253 11.9222 9.52165C11.801 9.40077 11.6381 9.3311 11.467 9.32707C11.2959 9.32304 11.1298 9.38496 11.0031 9.5L9.05245 11.4513L9.05712 1.16667C9.05712 0.989856 8.98688 0.820286 8.86185 0.695262C8.73683 0.570238 8.56726 0.5 8.39045 0.5C8.21364 0.5 8.04407 0.570238 7.91905 0.695262C7.79402 0.820286 7.72378 0.989856 7.72378 1.16667L7.71778 11.4387L5.77778 9.5C5.65269 9.375 5.48306 9.3048 5.30621 9.30486C5.12937 9.30493 4.95979 9.37524 4.83478 9.50033C4.70978 9.62543 4.63959 9.79506 4.63965 9.9719C4.63971 10.1487 4.71002 10.3183 4.83512 10.4433L6.97578 12.5813Z"
+        fill="white"
+      />
+      <path
+        d="M15.724 11.167C15.5471 11.167 15.3776 11.2372 15.2526 11.3623C15.1275 11.4873 15.0573 11.6568 15.0573 11.8337V14.5003C15.0573 14.6771 14.9871 14.8467 14.862 14.9717C14.737 15.0968 14.5674 15.167 14.3906 15.167H2.39062C2.21381 15.167 2.04424 15.0968 1.91922 14.9717C1.7942 14.8467 1.72396 14.6771 1.72396 14.5003V11.8337C1.72396 11.6568 1.65372 11.4873 1.5287 11.3623C1.40367 11.2372 1.2341 11.167 1.05729 11.167C0.880481 11.167 0.710911 11.2372 0.585887 11.3623C0.460863 11.4873 0.390625 11.6568 0.390625 11.8337L0.390625 14.5003C0.390625 15.0308 0.601339 15.5395 0.976411 15.9145C1.35148 16.2896 1.86019 16.5003 2.39062 16.5003H14.3906C14.9211 16.5003 15.4298 16.2896 15.8048 15.9145C16.1799 15.5395 16.3906 15.0308 16.3906 14.5003V11.8337C16.3906 11.6568 16.3204 11.4873 16.1954 11.3623C16.0703 11.2372 15.9008 11.167 15.724 11.167Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_735_9529">
+        <rect width={16} height={16} fill="white" transform="translate(0 0.5)" />
+      </clipPath>
     </defs>
   </svg>
 );

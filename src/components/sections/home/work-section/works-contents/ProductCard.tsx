@@ -4,14 +4,16 @@ import Image, { StaticImageData } from 'next/image';
 import FadeIn from '@/components/animations/fade-in';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type ProductCardProps = {
   id: number;
+  title: string;
   coverImg: StaticImageData;
   tags: string[];
 };
 
-export default function ProductCard({ coverImg, tags, id }: ProductCardProps) {
+export default function ProductCard({ coverImg, tags, id, title }: ProductCardProps) {
   const delay = 0.1 + ((id - 1) % 4) * 0.1;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -25,47 +27,62 @@ export default function ProductCard({ coverImg, tags, id }: ProductCardProps) {
   };
 
   return (
-    <FadeIn delay={delay}>
-      <Card className="w-full cursor-pointer border-none bg-transparent pt-0" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-        <motion.div
-          className="relative w-full min-h-[165px] rounded-[8px] p-[2px]"
-          style={{
-            background: isHovered ? createGradientWithGaps(0) : 'transparent'
-          }}
-          animate={
-            isHovered
-              ? {
-                  background: [createGradientWithGaps(0), createGradientWithGaps(360)],
-                  scale: 0.98
-                }
-              : {
-                  scale: 1
-                }
-          }
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'linear',
-            scale: {
-              duration: 0.3,
-              ease: 'easeInOut'
+    <Link href="">
+      <FadeIn delay={delay}>
+        <Card className="w-full cursor-pointer border-none bg-transparent pt-0 pb-0" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+          <motion.div
+            className="relative w-full min-h-[165px] rounded-[8px] p-[2px]"
+            style={{
+              background: isHovered ? createGradientWithGaps(0) : 'transparent'
+            }}
+            animate={
+              isHovered
+                ? {
+                    background: [createGradientWithGaps(0), createGradientWithGaps(360)],
+                    scale: 0.98
+                  }
+                : {
+                    scale: 1
+                  }
             }
-          }}
-        >
-          <div className="w-full h-full rounded-[6px] overflow-hidden bg-white relative">
-            <Image src={coverImg} width={297} height={222.75} className="w-full object-cover" alt="card image" />
-            <motion.div className="absolute inset-0 bg-black" initial={{ opacity: 0 }} animate={{ opacity: isHovered ? 0.3 : 0 }} transition={{ duration: 0.3 }} />
-          </div>
-        </motion.div>
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'linear',
+              scale: {
+                duration: 0.3,
+                ease: 'easeInOut'
+              }
+            }}
+          >
+            <div className="w-full h-full rounded-[6px] overflow-hidden bg-white relative">
+              <Image src={coverImg} width={297} height={222.75} className="w-full object-cover" alt="card image" />
+              <motion.p
+                className="absolute z-10 bottom-5 text-white px-4 text-sm font-medium leading-[20px]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isHovered ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {title}
+              </motion.p>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-b from-neutral-950/0 to-neutral-950/100"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isHovered ? 0.3 : 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+          </motion.div>
 
-        <CardContent className="flex flex-wrap items-start justify-start gap-1.5 p-0 mt-2">
-          {tags.map(tag => (
-            <Badge variant="tagsStyle" key={tag}>
-              {tag}
-            </Badge>
-          ))}
-        </CardContent>
-      </Card>
-    </FadeIn>
+          <CardContent className="flex flex-wrap items-start justify-start gap-1.5 p-0 mt-2">
+            {tags.map(tag => (
+              <Badge variant="tagsStyle" key={tag}>
+                {tag}
+              </Badge>
+            ))}
+          </CardContent>
+        </Card>
+      </FadeIn>
+    </Link>
   );
 }

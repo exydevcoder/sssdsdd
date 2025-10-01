@@ -2,7 +2,7 @@
 
 import { AnimatedCounter } from '@/components/animations/AnimatedCounter';
 import FadeIn from '@/components/animations/fade-in';
-import { StaticGradientBorder } from '@/components/animations/StaticGradientBorder';
+import { StaticGradientBorder } from '@/components/StaticGradientBorder';
 import LetTalkBtn from '@/components/buttons/LetTalkBtn';
 import ViewMyWorkBtn from '@/components/buttons/ViewMyWorkBtn';
 import GlowingWrapper from '@/components/GlowingBadge';

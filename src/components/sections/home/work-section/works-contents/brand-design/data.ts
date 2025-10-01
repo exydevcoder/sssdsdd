@@ -16,77 +16,92 @@ import img15 from '../../../../../../assets/selected-work/8.png';
 
 export const brandDesignData = [
   {
-    id: 1,
+    id: 28721,
+    title: 'Roga – AI for Stress Management',
     coverImg: img10,
     tags: ['HealthTech', 'UX', 'AI', 'Growth']
   },
   {
-    id: 11,
+    id: 28722,
+    title: 'GoSolar - Smarter Solar Planning',
     coverImg: img2,
     tags: ['FinTech', 'UI', 'Blockchain', 'Strategy']
   },
   {
-    id: 3,
+    id: 28723,
+    title: 'Finabox - Secure Financial Alerts',
     coverImg: img3,
     tags: ['EdTech', 'UX', 'AI', 'Research']
   },
   {
-    id: 4,
+    id: 28724,
+    title: 'Deliveristo - Redesigning B2B Food Marketplace',
     coverImg: img4,
     tags: ['E-commerce', 'UI', 'Growth', 'Data']
   },
   {
-    id: 5,
+    id: 28725,
+    title: 'Dulorres - Modern Farming Brand',
     coverImg: img5,
     tags: ['HealthTech', 'UX', 'Wellness', 'Strategy']
   },
   {
-    id: 6,
+    id: 28726,
+    title: 'Navana - Intelligent Travel Solutions',
     coverImg: img6,
     tags: ['Travel', 'UI', 'Maps', 'AI']
   },
   {
-    id: 7,
+    id: 28727,
+    title: 'Platera - Social Food Discovery',
     coverImg: img7,
     tags: ['Social', 'UX', 'Engagement', 'Growth']
   },
   {
-    id: 8,
+    id: 28728,
+    title: 'EduJoy - Gamified Learning Tools',
     coverImg: img8,
     tags: ['Education', 'UI', 'Gamification', 'Data']
   },
   {
-    id: 9,
+    id: 28729,
+    title: 'NeuroNest – Cognitive Health Tracker',
     coverImg: img15,
     tags: ['Logistics', 'UX', 'AI', 'Efficiency']
   },
   {
-    id: 10,
+    id: 287210,
+    title: 'ZenPath – Focus & Productivity Platform',
     coverImg: img1,
     tags: ['Productivity', 'UI', 'Minimal', 'Tools']
   },
   {
-    id: 2,
+    id: 287212,
+    title: 'Glowly – Wellness & Habit Assistant',
     coverImg: img11,
     tags: ['Wellness', 'UX', 'Habit Tracking', 'Growth']
   },
   {
-    id: 12,
+    id: 2872112,
+    title: 'DataSight – Smart SaaS Dashboard',
     coverImg: img12,
     tags: ['SaaS', 'UI', 'Dashboard', 'Data']
   },
   {
-    id: 13,
+    id: 2872113,
+    title: 'TrustBank – AI-driven Finance Security',
     coverImg: img13,
     tags: ['Finance', 'UX', 'AI', 'Security']
   },
   {
-    id: 14,
+    id: 2872114,
+    title: 'MediBridge - Virtual Care Redefined',
     coverImg: img14,
     tags: ['Healthcare', 'UI', 'Telemedicine', 'UX']
   },
   {
-    id: 15,
+    id: 2872115,
+    title: 'Agrolink - Smart Farming Ecosystem',
     coverImg: img9,
     tags: ['E-learning', 'UX', 'Personalization', 'AI']
   }
