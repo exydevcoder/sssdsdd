@@ -7,7 +7,6 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Beam from './Beam';
 
 export default function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,9 +35,21 @@ export default function AboutSection() {
             </FadeIn>
           </div>
 
-          <div ref={containerRef} className="w-full"></div>
-          <div className="w-full">
-            <Beam />
+          <div ref={containerRef} className="w-full">
+            {/* Panel 1 */}
+            <motion.div style={{ opacity: panel1Opacity, scale: panel1Scale }}>
+              <StepOne />
+            </motion.div>
+
+            {/* Panel 2 */}
+            <motion.div style={{ opacity: panel2Opacity, scale: panel2Scale }}>
+              <StepTwo />
+            </motion.div>
+
+            {/* Panel 3 */}
+            <motion.div style={{ opacity: panel3Opacity, scale: panel3Scale }}>
+              <StepThree />
+            </motion.div>
           </div>
         </div>
       </div>
