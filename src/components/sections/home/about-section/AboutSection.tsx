@@ -8,6 +8,8 @@ import { TracingBeam } from '@/components/ui/tracing-beam';
 import GlowingWrapper from '@/components/GlowingBadge';
 import { Button } from '@/components/ui/button';
 import { DownloadIcon } from '@/components/icon';
+import LinkedinBtn from '@/components/buttons/LinkedinBtn';
+import DownloadResumeBtn from '@/components/buttons/DownloadResumeBtn';
 
 export default function AboutSection() {
   return (
@@ -23,8 +25,12 @@ export default function AboutSection() {
           <div className="max-w-4xl mx-auto">
             <TracingBeam>
               <div className="max-w-[342px] xs:max-w-[672px] flex flex-col gap-7 pl-10 sm:pl-20 pt-10">
-                <StepOne />
-                <StepTwo />
+                <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2}>
+                  <StepOne />
+                </StaggeredFadeIn>
+                <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2}>
+                  <StepTwo />
+                </StaggeredFadeIn>
               </div>
             </TracingBeam>
           </div>
@@ -38,19 +44,10 @@ export default function AboutSection() {
           </FadeIn>
           <div className="flex items-center flex-col x320:flex-row justify-center gap-1.5">
             <FadeIn delay={0.5} direction="up">
-              <GlowingWrapper containerClassName="rounded-[11px]">
-                <Button variant="customBtn" className="w-[89px] flex items-center justify-center gap-2 border border-white/10 rounded-[11px]">
-                  Linkedin
-                </Button>
-              </GlowingWrapper>
+              <LinkedinBtn />
             </FadeIn>
             <FadeIn delay={0.6} direction="up">
-              <GlowingWrapper containerClassName="rounded-[11px]">
-                <Button variant="customBtn" className="w-[181px] text-white/90 bg-[#161616] flex items-center justify-center gap-2 border border-white/10 rounded-[11px]">
-                  <DownloadIcon />
-                  <span>Download Resume</span>
-                </Button>
-              </GlowingWrapper>
+              <DownloadResumeBtn />
             </FadeIn>
           </div>
         </div>

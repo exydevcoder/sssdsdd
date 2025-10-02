@@ -34,7 +34,7 @@ export default function ApproachSection() {
         <div className="flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">
             <FadeIn delay={0.3} direction="up">
-              <TextRevealCard text="Approach" revealText="My Processes" />
+              <TextRevealCard text="Process" revealText="Approach" />
             </FadeIn>
             <FadeIn delay={0.3} direction="up">
               <p className="max-w-[820px] text-center justify-center text-white text-[20px] x320:text-[32px] md:text-4xl font-light x320:leading-[40px] md:leading-[48px]">
