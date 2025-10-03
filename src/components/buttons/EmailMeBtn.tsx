@@ -5,9 +5,9 @@ import { Button } from '../ui/button';
 export default function EmailMeBtn() {
   return (
     <GlowingWrapper>
-      <Button variant="customBtn" className='w-[117px]'>
+      <Button variant="customBtn" className="w-[117px]">
         <EmailIcon />
-        <span className="text-white">Email me</span>
+        <span>Email me</span>
       </Button>
     </GlowingWrapper>
   );

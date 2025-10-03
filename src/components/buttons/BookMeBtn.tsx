@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 export default function BookMeBtn() {
   return (
     <GlowingWrapper>
-      <Button variant="customBtn" className="w-[113px] bg-neutral-900 border border-white/10 hover:!bg-neutral-900">
+      <Button variant="customBtn" className="w-[188px] bg-neutral-900 border border-white/10 hover:!bg-neutral-900">
         <BooMeIcon />
         <span className="text-white">Book a 30‑min intro</span>
       </Button>
