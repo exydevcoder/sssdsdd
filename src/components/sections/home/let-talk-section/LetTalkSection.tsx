@@ -14,11 +14,11 @@ export default function LetTalkSection() {
   return (
     <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[25px]">
       <div className="inner-section flex flex-col gap-16">
-        <div className="flex flex-col items-center justify-center">
-          <FadeIn delay={0.3} direction="up" className="mb-10 xl:mb-16 2xl:mb-32">
+        <div className="flex flex-col items-center justify-center gap-16">
+          <FadeIn delay={0.3} direction="up" className="">
             <TextRevealCard text="Let’s Talk" revealText="Book Call" />
           </FadeIn>
-          <FadeIn delay={0.3} direction="up" className="mb-[42px]">
+          <FadeIn delay={0.3} direction="up">
             <p className="max-w-[385px] sm:max-w-[591px] text-center text-white text-4xl font-light leading-[48px]">Tell me about your project goals, and timelines, I'll respond ASAP.</p>
           </FadeIn>
         </div>

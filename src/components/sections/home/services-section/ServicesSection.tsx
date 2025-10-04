@@ -6,9 +6,9 @@ import CheckRateCardBtn from '@/components/buttons/CheckRateCardBtn';
 
 export default function ServicesSection() {
   return (
-    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="section pb-[128px] xl:pb-[70px] md:pb-[256px]">
+    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="section pb-[128px] xl:pb-[70px] 2xl:pb-[256px]">
       <div className="inner-section">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-[126px] sm:px-8">
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-[50px] sm:px-8">
           <FadeIn delay={0.3} direction="up" className="flex items-center justify-center">
             <TextRevealCard text="Services" revealText="Specialties" />
           </FadeIn>

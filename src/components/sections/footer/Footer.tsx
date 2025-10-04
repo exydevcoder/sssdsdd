@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="section pb-16">
+    <footer className="section pb-28 pt-5">
       <div className="inner-section flex flex-col gap-1.5">
         <FadeIn direction="right" delay={0.2} duration={0.5}>
           <Link href="" className="flex flex-col items-center justify-center gap-1.5">
