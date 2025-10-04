@@ -13,7 +13,7 @@ interface LiquidGlitchImageProps {
   priority?: boolean;
 }
 
-export default function LiquidGlitchImage({ src, alt, fill = false, width = 500, height = 500, className = '', priority = false }: LiquidGlitchImageProps) {
+export default function LiquidGlitchImage({ src, alt, fill = false, width = 925.83, height = 925.62, className = '', priority = false }: LiquidGlitchImageProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const sceneRef = useRef<{
     scene: THREE.Scene;

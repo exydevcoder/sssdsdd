@@ -13,17 +13,17 @@ import { FlipWords } from '@/components/ui/flip-words';
 export default function BottomHeroContent() {
   const words = ['Senior UI/UX & Product Designer', 'Low-Code + AI Web Developer.', 'Brand Visuals & Motion Designer'];
   return (
-    <section className="section flex items-center justify-center py-[128px] md:py-[256px]">
+    <section className="relative xs:top-[30px] sm:top-[15px] xl:-top-[50px] 2xl:top-[100px] z-10 section flex items-center justify-center">
       <div className="inner-section flex flex-col gap-10">
         <div className="flex flex-col items-center justify-center gap-3">
           <FadeIn delay={0.2} direction="up">
             <FlipWords
               words={words}
-              className="max-w-[274px] sm:max-w-[570px] text-center text-white text-[32px] sm:text-4xl font-medium sm:leading-[48px] hover:text-emerald-300 transition-colors duration-500"
+              className="max-w-[274px] sm:max-w-[300px] lg:max-w-[570px] text-center text-white text-[32px] sm:text-4xl font-extralight sm:leading-[48px] hover:text-emerald-300 transition-colors duration-500"
             />
           </FadeIn>
           <FadeIn delay={0.3} direction="up">
-            <p className="max-w-[385px] sm:max-w-[580px] text-center justify-center text-neutral-400 text-lg font-normal leading-7">
+            <p className="max-w-[385px] lg:max-w-[580px] text-center justify-center text-neutral-400 text-lg font-normal leading-7">
               I design scalable, aesthetic digital experiences across brand, product, and web, driven by strategy and clean execution.
             </p>
           </FadeIn>

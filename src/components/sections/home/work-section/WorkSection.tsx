@@ -7,15 +7,15 @@ import DribbleBtn from '@/components/buttons/DribbleBtn';
 
 export default function WorkSection() {
   return (
-    <section id="work" className="section pb-[128px] md:pb-[256px]">
+    <section id="work" className="section pb-[128px] xl:pb-[120px] md:pb-[256px]">
       <div className="inner-section flex flex-col gap-13">
-        <FadeIn delay={0.3} direction="up" className="flex items-center justify-center">
+        <FadeIn delay={0.3} direction="up" className="flex items-center justify-center pb-[30px]">
           <TextRevealCard text="Projects" revealText="Case Studies" />
         </FadeIn>
         <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2}>
           <ScrollableTabs />
         </StaggeredFadeIn>
-        <div className="flex flex-col gap-10 items-center justify-center py-6 md:py-10">
+        <div className="flex flex-col gap-10 items-center justify-center pt-6 md:pt-10">
           <FadeIn delay={0.4} direction="up">
             <h3 className="max-w-[450px] text-center justify-center text-white text-[20px] x320:text-[32px] md:text-4xl font-light x320:leading-[40px] md:leading-[48px]">
               Tell me about your project You are just a click away

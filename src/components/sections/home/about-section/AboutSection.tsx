@@ -5,15 +5,15 @@ import { TextRevealCard } from '@/components/ui/text-reveal-card';
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import { TracingBeam } from '@/components/ui/tracing-beam';
-import GlowingWrapper from '@/components/GlowingBadge';
-import { Button } from '@/components/ui/button';
-import { DownloadIcon } from '@/components/icon';
+// import GlowingWrapper from '@/components/GlowingBadge';
+// import { Button } from '@/components/ui/button';
+// import { DownloadIcon } from '@/components/icon';
 import LinkedinBtn from '@/components/buttons/LinkedinBtn';
 import DownloadResumeBtn from '@/components/buttons/DownloadResumeBtn';
 
 export default function AboutSection() {
   return (
-    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] md:pb-[256px]">
+    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] xl:pb-[70px] md:pb-[256px]">
       <div className="inner-section">
         <div className="max-w-[1216px] mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">

@@ -16,7 +16,7 @@ export default function LetTalkSection() {
       <div className="inner-section flex flex-col gap-16">
         <div className="flex flex-col items-center justify-center">
           <FadeIn delay={0.3} direction="up" className="mb-10 xl:mb-16 2xl:mb-32">
-            <TextRevealCard text="Let’s Talk" revealText="Answers" />
+            <TextRevealCard text="Let’s Talk" revealText="Book Call" />
           </FadeIn>
           <FadeIn delay={0.3} direction="up" className="mb-[42px]">
             <p className="max-w-[385px] sm:max-w-[591px] text-center text-white text-4xl font-light leading-[48px]">Tell me about your project goals, and timelines, I'll respond ASAP.</p>
