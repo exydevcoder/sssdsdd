@@ -4,11 +4,13 @@ import { Button } from '../ui/button';
 
 export default function EmailMeBtn() {
   return (
-    <GlowingWrapper>
-      <Button variant="customBtn" className="w-[117px]">
-        <EmailIcon />
-        <span>Email me</span>
-      </Button>
-    </GlowingWrapper>
+    <a href="#">
+      <GlowingWrapper>
+        <Button variant="customBtn" className="w-[117px]">
+          <EmailIcon />
+          <span>Email me</span>
+        </Button>
+      </GlowingWrapper>
+    </a>
   );
 }

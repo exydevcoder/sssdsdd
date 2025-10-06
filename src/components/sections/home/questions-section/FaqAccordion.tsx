@@ -1,5 +1,6 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import GlowingWrapper from '@/components/GlowingBadge';
 
 export default function FAQAccordion() {
   const faqItems = [
@@ -48,10 +49,12 @@ export default function FAQAccordion() {
     <div className="w-[602px]">
       <Accordion type="single" collapsible defaultValue="item-1" className="space-y-3">
         {faqItems.map(item => (
-          <AccordionItem key={item.id} value={item.id} className="bg-neutral-900 rounded-xl border-white/10">
-            <AccordionTrigger className="p-4 cursor-pointer text-left text-white text-sm sm:text-lg font-light leading-[20px] hover:no-underline">{item.question}</AccordionTrigger>
-            <AccordionContent className="p-4 text-stone-500 text-base font-normal leading-[24px]">{item.answer}</AccordionContent>
-          </AccordionItem>
+          <GlowingWrapper key={item.id}>
+            <AccordionItem value={item.id} className="bg-neutral-900 rounded-xl border-white/10">
+              <AccordionTrigger className="p-4 cursor-pointer text-left text-white text-sm sm:text-lg font-light leading-[20px] hover:no-underline">{item.question}</AccordionTrigger>
+              <AccordionContent className="p-4 text-stone-500 text-base font-normal leading-[24px]">{item.answer}</AccordionContent>
+            </AccordionItem>
+          </GlowingWrapper>
         ))}
       </Accordion>
     </div>

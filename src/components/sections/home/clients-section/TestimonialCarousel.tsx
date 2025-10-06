@@ -7,6 +7,7 @@ import img1 from '../../../../assets/testimonial/1.png';
 import img2 from '../../../../assets/testimonial/2.png';
 import img3 from '../../../../assets/testimonial/3.png';
 import { StaticImageData } from 'next/image';
+import GlowingWrapper from '@/components/GlowingBadge';
 
 interface Testimonial {
   id: number;
@@ -36,18 +37,18 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 3,
-    quote: 'Olawale brings clarity to complex problems. We shipped faster with higher confidence. Our team still uses the system he set up.',
-    author: 'Aisha Bello',
-    role: 'VP Product',
-    company: 'Nimbus',
-    avatar: img3
-  },
-  {
-    id: 4,
     quote: 'Working with Olawale transformed our approach to product development. His insights were invaluable.',
     author: 'Sarah Chen',
     role: 'CTO',
     company: 'Apex',
+    avatar: img3
+  },
+  {
+    id: 4,
+    quote: 'The design system he created became the foundation of our entire product suite. Absolute game changer.',
+    author: 'James Wilson',
+    role: 'Head of Design',
+    company: 'Pulse',
     avatar: img2
   }
 ];
@@ -56,10 +57,11 @@ const CARD_WIDTH = 384;
 const GAP = 24;
 const ITEM_WIDTH = CARD_WIDTH + GAP;
 
-export function TestimonialCarousel() {
+export default function TestimonialCarousel() {
   const x = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [constraints, setConstraints] = useState({ left: 0, right: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const testimonialsCount = testimonials.length;
   const list = [...testimonials, ...testimonials]; // duplicated list
@@ -86,33 +88,51 @@ export function TestimonialCarousel() {
     });
   }, [x, testimonialsCount]);
 
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isHovered) return;
+
+    const interval = setInterval(() => {
+      const currentX = x.get();
+      x.set(currentX - 1);
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [x, isHovered]);
+
   return (
     <div className="overflow-hidden w-full pl-5 sm:pl-25" ref={containerRef}>
-      <motion.div className="flex gap-6 cursor-grab active:cursor-grabbing" drag="x" dragConstraints={constraints} style={{ x }}>
+      <motion.div
+        className="flex gap-6 cursor-grab active:cursor-grabbing lg:py-3"
+        drag="x"
+        dragConstraints={constraints}
+        style={{ x }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {list.map((testimonial, idx) => (
-          <div
-            key={`${testimonial.id}-${idx}`}
-            className="flex-shrink-0 flex flex-col gap-6 w-80 xs:w-96 bg-neutral-900 rounded-xl h-48 p-6 justify-between outline outline-offset-[-1px] outline-white/10"
-          >
-            <p className="text-neutral-300 text-sm font-normal leading-[20px]">"{testimonial.quote}"</p>
-            <div className="flex items-center gap-3">
-              <Avatar className="h-10 w-10">
-                <AvatarImage src={testimonial.avatar?.src || '/placeholder.svg'} alt={testimonial.author} />
-                <AvatarFallback className="bg-zinc-800 text-zinc-100">
-                  {testimonial.author
-                    .split(' ')
-                    .map(n => n[0])
-                    .join('')}
-                </AvatarFallback>
-              </Avatar>
-              <div>
-                <p className="text-white text-sm font-medium leading-[20px]">{testimonial.author}</p>
-                <p className="text-neutral-400 text-xs font-normal leading-[16px]">
-                  {testimonial.role}, {testimonial.company}
-                </p>
+          <GlowingWrapper key={`${testimonial.id}-${idx}`} className="rounded-xl">
+            <div className="flex-shrink-0 flex flex-col gap-6 w-80 xs:w-96 bg-neutral-900 rounded-xl h-48 p-6 justify-between outline outline-offset-[-1px] outline-white/10">
+              <p className="text-neutral-300 text-sm font-normal leading-[20px]">"{testimonial.quote}"</p>
+              <div className="flex items-center gap-3">
+                <Avatar className="h-10 w-10">
+                  <AvatarImage src={testimonial.avatar?.src || '/placeholder.svg'} alt={testimonial.author} />
+                  <AvatarFallback className="bg-zinc-800 text-zinc-100">
+                    {testimonial.author
+                      .split(' ')
+                      .map(n => n[0])
+                      .join('')}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-white text-sm font-medium leading-[20px]">{testimonial.author}</p>
+                  <p className="text-neutral-400 text-xs font-normal leading-[16px]">
+                    {testimonial.role}, {testimonial.company}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </GlowingWrapper>
         ))}
       </motion.div>
     </div>

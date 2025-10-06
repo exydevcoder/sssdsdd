@@ -1,6 +1,6 @@
 import FadeIn from '@/components/animations/fade-in';
 import StaggeredFadeIn from '@/components/animations/StaggeredFadeIn';
-import { TextRevealCard } from '@/components/ui/text-reveal-card';
+// import { TextRevealCard } from '@/components/ui/text-reveal-card';
 import ServiceAccordion from './ServiceAccordion';
 import CheckRateCardBtn from '@/components/buttons/CheckRateCardBtn';
 
@@ -10,7 +10,8 @@ export default function ServicesSection() {
       <div className="inner-section">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-[50px] sm:px-8">
           <FadeIn delay={0.3} direction="up" className="flex items-center justify-center">
-            <TextRevealCard text="Services" revealText="Specialties" />
+            {/* <TextRevealCard text="Services" revealText="Specialties" /> */}
+            <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Specialties</p>
           </FadeIn>
 
           <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2}>

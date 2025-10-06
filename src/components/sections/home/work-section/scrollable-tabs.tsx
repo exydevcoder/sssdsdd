@@ -45,7 +45,7 @@ const tabs: Tab[] = [
     id: 'print-offline-design',
     label: 'Print & Offline Design',
     content: <PrintOfflineDesign />
-  }
+  },
 ];
 
 export default function ScrollableTabs() {
@@ -89,7 +89,7 @@ export default function ScrollableTabs() {
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
-              className="absolute cursor-pointer left-0 top-0 bottom-0 z-10 px-2 bg-gradient-to-r from-neutral-900/0 to-neutral-900 flex items-center"
+              className="absolute cursor-pointer left-0 top-0 bottom-0 z-10 px-2 bg-gradient-to-r from-[#0A0A0A] to-[#0A0A0A]/60 flex items-center"
               aria-label="Scroll left"
             >
               <ArrowIcon className="rotate-180" />
@@ -108,7 +108,7 @@ export default function ScrollableTabs() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`cursor-pointer h-9 px-3 py-1.5 rounded-xl outline outline-offset-[-1px] outline-white/10 flex justify-center items-center gap-2 text-sm font-medium leading-[20px] transition-colors whitespace-nowrap ${
-                  activeTab === tab.id ? 'text-emerald-300 bg-zinc-900' : 'text-stone-500'
+                  activeTab === tab.id ? 'text-emerald-300 bg-zinc-900' : 'text-stone-500 hover:text-white'
                 }`}
               >
                 {tab.label}
@@ -120,7 +120,7 @@ export default function ScrollableTabs() {
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
-              className="absolute cursor-pointer right-0 top-0 bottom-0 z-10 px-2 bg-gradient-to-r from-neutral-900/0 to-neutral-900 flex items-center"
+              className="absolute cursor-pointer right-0 top-0 bottom-0 z-10 px-2 bg-gradient-to-r from-[#0A0A0A]/60 to-[#0A0A0A] flex items-center"
               aria-label="Scroll right"
             >
               <ArrowIcon />

@@ -16,9 +16,9 @@ export default function HeroBanner() {
         <HeroBannerCircleShape />
         <div className="inner-section flex items-center justify-between w-full">
           <div className="relative w-full flex flex-col gap-7 px-2 sm:px-8 py-6">
-            <FadeIn direction="up" delay={1.3} distance={30} duration={0.8} className="w-full text-center">
+            {/* <FadeIn direction="up" delay={1.3} distance={30} duration={0.8} className="hidden text-center">
               <p className="text-stone-500 text-2xl sm:text-3xl font-medium">Hello! my name is</p>
-            </FadeIn>
+            </FadeIn> */}
             <div className="relative flex flex-col items-center justify-center">
               {/* SVG Container - Made responsive with mobile stretch */}
               <OlawaleDesktopName />

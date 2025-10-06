@@ -3,7 +3,7 @@ import StaggeredFadeIn from '@/components/animations/StaggeredFadeIn';
 import GlowingWrapper from '@/components/GlowingBadge';
 import { AlignIcon, ExploreIcon, ShipIcon, ValidateIcon } from '@/components/icon';
 import { Button } from '@/components/ui/button';
-import { TextRevealCard } from '@/components/ui/text-reveal-card';
+// import { TextRevealCard } from '@/components/ui/text-reveal-card';
 
 export default function ApproachSection() {
   const data = [
@@ -29,12 +29,13 @@ export default function ApproachSection() {
     }
   ];
   return (
-    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] md:pb-[256px]">
+    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] md:pb-[320px]">
       <div className="inner-section">
         <div className="flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">
             <FadeIn delay={0.3} direction="up">
-              <TextRevealCard text="Process" revealText="Approach" />
+              {/* <TextRevealCard text="Process" revealText="Approach" /> */}
+              <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Approach</p>
             </FadeIn>
             <FadeIn delay={0.3} direction="up">
               <p className="max-w-[820px] text-center justify-center text-white text-[20px] x320:text-[32px] md:text-4xl font-light x320:leading-[40px] md:leading-[48px]">
@@ -45,7 +46,7 @@ export default function ApproachSection() {
 
           {/* desktop view */}
           <div className="hidden lg:block">
-            <div className="relative flex h-0.5 bg-gradient-to-l from-emerald-300 via-lime-300 to-amber-300/0 rounded-[100px]">
+            <div className="relative w-full flex h-0.5 bg-gradient-to-l from-emerald-300 via-lime-300 to-amber-300/0 rounded-[100px]">
               <div className="relative flex gap-6 w-full">
                 {data.map((list, index) => (
                   <FadeIn key={index} delay={0.4 + index * 0.4} direction="left" className="w-full">

@@ -30,7 +30,7 @@ export default function GlowingWrapper({
   movementDuration = 2
 }: GlowingWrapperProps) {
   return (
-    <div className={`relative max-w-max max-h-max rounded-[11px] ${containerClassName || ''}`}>
+    <div className={`relative rounded-[11px] ${containerClassName || ''}`}>
       <GlowingEffect
         blur={blur}
         borderWidth={borderWidth}

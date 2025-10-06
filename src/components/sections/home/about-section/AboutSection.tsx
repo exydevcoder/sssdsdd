@@ -18,7 +18,8 @@ export default function AboutSection() {
         <div className="max-w-[1216px] mx-auto flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">
             <FadeIn delay={0.3} direction="up">
-              <TextRevealCard text="About Me" revealText="Know Me" />
+              {/* <TextRevealCard text="About Me" revealText="Know Me" /> */}
+              <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Know Me</p>
             </FadeIn>
           </div>
 

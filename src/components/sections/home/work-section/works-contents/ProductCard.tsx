@@ -29,7 +29,7 @@ export default function ProductCard({ coverImg, tags, id, title }: ProductCardPr
   return (
     <Link href="">
       <FadeIn delay={delay}>
-        <Card className="w-full cursor-pointer border-none bg-transparent pt-0 pb-0" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <Card className="w-full gap-[11px] cursor-pointer border-none bg-transparent pt-0 pb-0" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           <motion.div
             className="relative w-full min-h-[165px] rounded-[8px] p-[2px]"
             style={{
@@ -57,24 +57,28 @@ export default function ProductCard({ coverImg, tags, id, title }: ProductCardPr
           >
             <div className="w-full h-full rounded-[6px] overflow-hidden bg-white relative">
               <Image src={coverImg} width={297} height={222.75} className="w-full object-cover" alt="card image" />
-              <motion.p
-                className="absolute z-10 bottom-5 text-white px-4 text-sm font-medium leading-[20px]"
+              <motion.div 
+              initial={{ opacity: 0 }}
+                  animate={{ opacity: isHovered ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className='w-full absolute bottom-0 z-10 px-4 pb-4 pt-20 bg-gradient-to-b from-[#0A0A0A]/0 to-[#0A0A0A]/70'>
+                <motion.p
+                  className="text-white text-sm font-medium leading-[20px]"
+                >
+                  {title}
+                </motion.p>
+              </motion.div>
+
+              {/* <motion.div
+                className="absolute bottom-0 inset-0 bg-gradient-to-b from-[#0A0A0A]/0 to-[#0A0A0A]/100"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: isHovered ? 1 : 0 }}
+                animate={{ opacity: isHovered ? 0.8 : 0 }}
                 transition={{ duration: 0.3 }}
-              >
-                {title}
-              </motion.p>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-neutral-950/0 to-neutral-950/100"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isHovered ? 0.3 : 0 }}
-                transition={{ duration: 0.3 }}
-              />
+              /> */}
             </div>
           </motion.div>
 
-          <CardContent className="flex flex-wrap items-start justify-start gap-1.5 p-0 mt-2">
+          <CardContent className="flex flex-wrap items-start justify-start gap-1.5 p-0">
             {tags.map(tag => (
               <Badge variant="tagsStyle" key={tag}>
                 {tag}
