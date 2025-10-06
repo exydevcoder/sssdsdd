@@ -1,4 +1,4 @@
-import aboutImg from '../../../../assets/about1.png';
+import aboutImg from '../../../../assets/new-photos/About-First-4x.webp';
 import Image from 'next/image';
 
 export default function StepOne() {

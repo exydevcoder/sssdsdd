@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { CheckedIcon } from '@/components/icon';
-import img1 from '../../../../assets/services/1.png';
-import img2 from '../../../../assets/services/2.png';
-import img3 from '../../../../assets/services/3.png';
+import img1 from '../../../../assets/new-photos/Service-PorductDesign-4x.webp';
+import img2 from '../../../../assets/new-photos/Service-BrandDesign-4x.webp';
+import img3 from '../../../../assets/new-photos/Service-WebDesign-4x.webp';
 
 interface Service {
   id: string;

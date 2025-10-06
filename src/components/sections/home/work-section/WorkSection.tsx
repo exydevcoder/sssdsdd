@@ -1,4 +1,4 @@
-// import { TextRevealCard } from '@/components/ui/text-reveal-card';
+import { TextRevealCard } from '@/components/ui/text-reveal-card';
 import FadeIn from '@/components/animations/fade-in';
 import ScrollableTabs from './scrollable-tabs';
 import StaggeredFadeIn from '@/components/animations/StaggeredFadeIn';
@@ -11,8 +11,8 @@ export default function WorkSection() {
     <section id="work" className="section pb-[128px] xl:pb-[120px] md:pb-[256px] scroll-mt-20">
       <div className="inner-section flex flex-col gap-13">
         <FadeIn delay={0.3} direction="up" className="flex items-center justify-center pb-[30px]">
-          {/* <TextRevealCard text="Projects" revealText="Case Studies" /> */}
-          <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Case Studies</p>
+          <TextRevealCard text="Projects" revealText="Case Studies" />
+          {/* <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Case Studies</p> */}
         </FadeIn>
         <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2}>
           <ScrollableTabs />

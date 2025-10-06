@@ -1,7 +1,7 @@
 'use client';
 import FadeIn from '@/components/animations/fade-in';
 import StaggeredFadeIn from '@/components/animations/StaggeredFadeIn';
-import { TextRevealCard } from '@/components/ui/text-reveal-card';
+// import { TextRevealCard } from '@/components/ui/text-reveal-card';
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import { TracingBeam } from '@/components/ui/tracing-beam';

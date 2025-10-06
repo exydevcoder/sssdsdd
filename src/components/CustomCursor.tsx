@@ -29,7 +29,7 @@ export default function CustomCursor() {
 
   return (
     <div
-      className="w-96 h-96 bg-emerald-400/10 rounded-full blur-[78.65px]"
+      className="w-96 h-96 z-50 bg-emerald-400/20 rounded-full blur-[78.65px]"
       style={{
         position: 'fixed',
         top: position.y,

@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import olawalePic from '../../../../assets/new-olawale-pic.png';
+import olawalePic from '../../../../assets/new-photos/Hero-Image-4x.webp';
 // import olawalePicMobile from '../../../../assets/olawale-pic-mobile.png';
-import FadeIn from '@/components/animations/fade-in';
+// import FadeIn from '@/components/animations/fade-in';
 // import { OlawaleMobileName } from '@/components/icon';
 import HeroBannerCircleShape, { HeroBannerCircleShapeTwo } from '@/components/CircleShape';
 import { OlawaleDesktopName } from '@/components/OlawaleNameAnimate';
