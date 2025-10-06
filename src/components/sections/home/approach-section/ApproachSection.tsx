@@ -3,7 +3,7 @@ import StaggeredFadeIn from '@/components/animations/StaggeredFadeIn';
 import GlowingWrapper from '@/components/GlowingBadge';
 import { AlignIcon, ExploreIcon, ShipIcon, ValidateIcon } from '@/components/icon';
 import { Button } from '@/components/ui/button';
-// import { TextRevealCard } from '@/components/ui/text-reveal-card';
+import { TextRevealCard } from '@/components/ui/text-reveal-card';
 
 export default function ApproachSection() {
   const data = [
@@ -34,8 +34,8 @@ export default function ApproachSection() {
         <div className="flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">
             <FadeIn delay={0.3} direction="up">
-              {/* <TextRevealCard text="Process" revealText="Approach" /> */}
-              <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Approach</p>
+              <TextRevealCard text="Process" revealText="Approach" />
+              {/* <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Approach</p> */}
             </FadeIn>
             <FadeIn delay={0.3} direction="up">
               <p className="max-w-[820px] text-center justify-center text-white text-[20px] x320:text-[32px] md:text-4xl font-light x320:leading-[40px] md:leading-[48px]">

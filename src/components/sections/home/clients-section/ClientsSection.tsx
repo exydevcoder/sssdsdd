@@ -1,7 +1,7 @@
 import FadeIn from '@/components/animations/fade-in';
 import StaggeredFadeIn from '@/components/animations/StaggeredFadeIn';
 import TestimonialCarousel from './TestimonialCarousel';
-// import { TextRevealCard } from '@/components/ui/text-reveal-card';
+import { TextRevealCard } from '@/components/ui/text-reveal-card';
 
 export default function ClientsSection() {
   return (
@@ -10,8 +10,8 @@ export default function ClientsSection() {
         <div className="inner-section">
           <div className="flex flex-col gap-16 items-center justify-center">
             <FadeIn delay={0.3} direction="up" className="flex items-center justify-center">
-              {/* <TextRevealCard text="Clients" revealText="Stories" /> */}
-              <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Stories</p>
+              <TextRevealCard text="Clients" revealText="Stories" />
+              {/* <p className="text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-white font-extralight">Stories</p> */}
             </FadeIn>
             <FadeIn delay={0.3} direction="up">
               <p className="max-w-[385px] sm:max-w-[558px] text-center text-white text-4xl font-light leading-[48px]">A few words from partners and teams I’ve worked with.</p>

@@ -79,7 +79,7 @@ export const TextRevealCard = ({ text, revealText, children, className, threshol
 
         {/* Reveal Text Layer - Shows complete text with mask */}
         <motion.div
-          className="absolute inset-0 z-20 will-change-transform overflow-visible flex items-center"
+          className="absolute z-20 will-change-transform overflow-visible flex items-center"
           style={{
             opacity: revealPercentage > 2 ? 1 : 0,
             maskImage: `linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) ${revealPercentage}%, rgba(255,255,255,0) ${revealPercentage + 2}%, rgba(255,255,255,0) 100%)`,
