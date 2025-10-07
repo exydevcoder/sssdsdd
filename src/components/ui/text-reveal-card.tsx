@@ -75,7 +75,7 @@ export const TextRevealCard = ({ text, revealText, children, className, threshol
       {/* Container that accommodates the longer text */}
       <div className="relative flex items-center overflow-visible min-w-max">
         {/* Hidden text to establish container width - uses the longer of the two texts */}
-        <p className="font-extralight text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] whitespace-nowrap opacity-0 pointer-events-none">{revealText.length > text.length ? revealText : text}</p>
+        <p className="font-extralight text-[50px] xs:text-[60px] md:text-[100px] 2xl:text-[156px] whitespace-nowrap opacity-0 pointer-events-none">{revealText.length > text.length ? revealText : text}</p>
 
         {/* Reveal Text Layer - Shows complete text with mask */}
         <motion.div
@@ -91,7 +91,7 @@ export const TextRevealCard = ({ text, revealText, children, className, threshol
               textShadow: '4px 4px 15px rgba(0,0,0,0.5)',
               filter: `brightness(${100 + revealPercentage * 0.3}%)`
             }}
-            className="font-extralight text-[#FFFFFF] bg-clip-text text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] bg-gradient-to-b from-white to-neutral-300 whitespace-nowrap"
+            className="font-extralight text-[#FFFFFF] bg-clip-text text-[50px] xs:text-[60px] md:text-[100px] 2xl:text-[156px] bg-gradient-to-b from-white to-neutral-300 whitespace-nowrap"
           >
             {revealText}
           </p>
@@ -113,7 +113,7 @@ export const TextRevealCard = ({ text, revealText, children, className, threshol
         {/* Background Text - Fades out as reveal happens */}
         <div className="absolute inset-0 overflow-visible flex items-center justify-center [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
           <p
-            className="font-extralight bg-clip-text text-[60px] x320:text-[80px] md:text-[100px] 2xl:text-[156px] text-transparent bg-[#323238] whitespace-nowrap"
+            className="font-extralight bg-clip-text text-[50px] xs:text-[60px] md:text-[100px] 2xl:text-[156px] text-transparent bg-[#323238] whitespace-nowrap"
             style={{
               opacity: revealPercentage > 5 ? Math.max(0, 1 - revealPercentage / 80) : 1
             }}
