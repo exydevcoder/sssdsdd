@@ -29,7 +29,7 @@ export default function ApproachSection() {
     }
   ];
   return (
-    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] md:pb-[320px]">
+    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[206px] sm:pb-[356px]">
       <div className="inner-section">
         <div className="flex flex-col gap-16">
           <div className="flex flex-col items-center justify-center gap-16">

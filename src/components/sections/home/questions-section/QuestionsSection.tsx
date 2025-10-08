@@ -6,7 +6,7 @@ import FAQAccordion from './FaqAccordion';
 
 export default function QuestionsSection() {
   return (
-    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[128px] xl:pb-[70px] 2xl:pb-[256px]">
+    <StaggeredFadeIn direction="up" staggerDelay={0.15} initialDelay={0.2} className="relative section pb-[256px]">
       <div className="inner-section flex flex-col gap-16 lg:gap-32">
         <div className="flex flex-col items-center justify-center">
           <FadeIn delay={0.3} direction="up" className="mb-10 xl:mb-16 2xl:mb-32">
