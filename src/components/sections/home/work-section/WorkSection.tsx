@@ -8,7 +8,7 @@ import WhatsAppMessageBtn from '@/components/buttons/WhatsAppMessageBtn';
 
 export default function WorkSection() {
   return (
-    <section id="work" className="section pb-[256px] scroll-mt-20">
+    <section id="work" className="section pb-[256px] 2xl:pb-[456px] scroll-mt-20">
       <div className="inner-section flex flex-col gap-13">
         <FadeIn delay={0.3} direction="up" className="flex items-center justify-center pb-[30px]">
           <TextRevealCard text="Projects" revealText="Case Studies" />
